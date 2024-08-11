@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "135050435511",
+    "project_id": "marketingshoes-682ee",
+    "storage_bucket": "marketingshoes-682ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:135050435511:android:edf3961ab203d2a914a632",
+        "android_client_info": {
+          "package_name": "com.example.shoe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnxhjvM8aXN7Utfc0wyLInmatQc3hSllM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
