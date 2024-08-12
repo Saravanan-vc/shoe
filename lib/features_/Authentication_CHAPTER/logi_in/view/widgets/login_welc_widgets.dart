@@ -16,7 +16,7 @@ class LoginWelcWidgets extends StatelessWidget {
         rightmove: 223,
         widget: Text(
           'Welcom Back',
-          style: textstyle.splas_Loging(30,splashBlack),
+          style: textstyle.splascomr(30,splashBlack),
         ),
       ),
     );

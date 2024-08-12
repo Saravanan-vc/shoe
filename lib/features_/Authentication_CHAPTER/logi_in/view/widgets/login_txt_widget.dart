@@ -15,7 +15,7 @@ class LoginTxtWidget extends StatelessWidget {
       rightmove: 240,
       widget: Text(
         'Login',
-        style: textstyle.splas_Loging(60, splashBlack),
+        style: textstyle.splascomr(60, splashBlack),
       ),
     ));
   }

@@ -12,6 +12,7 @@ class ButtonCustomizeWidget extends StatelessWidget {
   final bool gradientc;
   final dynamic scolor;
   final double fs;
+  final VoidCallback onpress;
   const ButtonCustomizeWidget({
     super.key,
     required this.text,
@@ -23,28 +24,32 @@ class ButtonCustomizeWidget extends StatelessWidget {
     required this.r,
     this.gradientc = false,
     this.scolor,
+    required this.onpress,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: gradientc ? null : color,
-        borderRadius: BorderRadius.circular(r),
-        gradient: gradientc
-            ? LinearGradient(
-                colors: [color, scolor],
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-              )
-            : null,
-      ),
-      width: W.w,
-      height: H.h,
-      child: Center(
-        child: Text(
-          text,
-          style: textstyle.splas_Loging(fs, textcolor),
+    return GestureDetector(
+      onTap: onpress ,
+      child: Container(
+        decoration: BoxDecoration(
+          color: gradientc ? null : color,
+          borderRadius: BorderRadius.circular(r),
+          gradient: gradientc
+              ? LinearGradient(
+                  colors: [color, scolor],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                )
+              : null,
+        ),
+        width: W.w,
+        height: H.h,
+        child: Center(
+          child: Text(
+            text,
+            style: textstyle.splascomr(fs, textcolor),
+          ),
         ),
       ),
     );
