@@ -3,7 +3,9 @@ class ScreenHW{
   hight(context){
   return  MediaQuery.of(context).size.height;
   } 
+  width(context){
+  return  MediaQuery.of(context).size.width;
+  }
 
 }
 
-// var w = MediaQuery.of(context).size.width;

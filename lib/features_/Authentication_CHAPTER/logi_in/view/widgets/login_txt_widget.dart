@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
+import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/animation_CHAPTER/animation_splash.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 
@@ -14,7 +15,7 @@ class LoginTxtWidget extends StatelessWidget {
       rightmove: 240,
       widget: Text(
         'Login',
-        style: textstyle.splas_Loging(60),
+        style: textstyle.splas_Loging(60, splashBlack),
       ),
     ));
   }

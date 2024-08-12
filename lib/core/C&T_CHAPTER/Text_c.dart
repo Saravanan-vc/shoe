@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class textstyle {
-  static TextStyle splas_Loging(double fs) {
+  static TextStyle splas_Loging(double fs, dynamic color) {
     return TextStyle(
-      fontSize: fs,
+      fontSize: fs.sp,
       fontFamily: 'Simple_f',
       fontWeight: FontWeight.w600,
-      color: splashBlack,
+      color: color,
     );
   }
 }
