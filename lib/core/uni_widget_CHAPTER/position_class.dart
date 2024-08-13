@@ -6,10 +6,10 @@ class PositionClass {
   dynamic top;
   dynamic bottom;
   PositionClass({
-    this.bottom = null,
-    this.left = null,
-    this.right = null,
-    this.top = null,
+    this.bottom,
+    this.left,
+    this.right,
+    this.top,
   });
   Positioned global(Widget child) {
     return Positioned(
