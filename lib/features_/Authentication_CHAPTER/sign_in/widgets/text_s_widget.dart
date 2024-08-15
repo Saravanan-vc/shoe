@@ -10,11 +10,11 @@ class TextSWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SlashShoe(
       startpoint: -200,
-      rightmove: 76,
-      endpoint: 145,
+      rightmove: 110,
+      endpoint: 85,
       widget: Text(
-        "Good to see you",
-        style: textstyle.splascomr(40, splashBlack),
+        "Sign",
+        style: textstyle.splascomr(100, splashWhite),
       ),
     );
   }

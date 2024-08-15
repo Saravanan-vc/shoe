@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iconly/iconly.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/button_customize_widget.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding_space.dart';
@@ -42,7 +43,7 @@ class FormCheckerWidgets extends StatelessWidget {
                     return PaddingSpacecustom.horz(
                       10,
                       logic.emailbar(
-                        CupertinoIcons.clear,
+                        IconlyLight.close_square,
                         'E-mail',
                         splashCyan,
                         splashBlue,
@@ -50,7 +51,7 @@ class FormCheckerWidgets extends StatelessWidget {
                         false,
                         (val) {
                           if (val!.isEmpty) {
-                            return 'Give Email is not validate';
+                            return 'Given Email is not validate';
                           }
                           return null;
                         },
@@ -65,7 +66,7 @@ class FormCheckerWidgets extends StatelessWidget {
                     return PaddingSpacecustom.horz(
                       10,
                       logic.emailbar(
-                        CupertinoIcons.eye_slash,
+                        IconlyLight.password,
                         'Password',
                         splashCyan,
                         splashBlue,
@@ -73,7 +74,7 @@ class FormCheckerWidgets extends StatelessWidget {
                         true,
                         (val) {
                           if (val!.isEmpty) {
-                            return 'Given password is not be empty';
+                            return 'Give password to verify';
                           }
                           return null;
                         },

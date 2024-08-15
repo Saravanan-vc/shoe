@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:iconly/iconly.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/button_customize_widget.dart';
@@ -36,6 +37,57 @@ class TextformSWidget extends StatelessWidget {
               key: _Key,
               child: Column(
                 children: [
+                  Spacer(),
+                  PaddingSpacecustom.horz(
+                    10,
+                    TextFormField(
+                      controller: logic.namecontrol,
+                      maxLines: 1,
+                      decoration: InputDecoration(
+                        border: const OutlineInputBorder(
+                          borderSide: BorderSide(
+                            width: 2.0,
+                          ),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderSide: BorderSide(color: splashCyan, width: 1.5),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide(
+                            color: splashBlue,
+                            width: 2.0,
+                          ),
+                        ),
+                        label: Text(
+                          "Name",
+                          style: textstyle.text_form(18, splashBlack),
+                        ),
+                        suffix: GestureDetector(
+                          onTap: () {
+                            logic.namecontrol.text = '';
+                          },
+                          child: const Icon(IconlyLight.close_square),
+                        ),
+                      ),
+                      style: textstyle.text_form(20, splashBlack),
+                      onChanged: (value) {
+                        logic.namecontrol.text = value.toString().trim();
+                      },
+                      textInputAction: TextInputAction.next,
+                      onTapOutside: (e) {
+                        FocusManager.instance.primaryFocus?.unfocus();
+                      },
+                      validator: (value) {
+                        var input = RegExp(r'[a-z][A-z]$');
+                        bool checking = input.hasMatch(value.toString());
+
+                        if (!checking) {
+                          return 'Name must contain alaphatic ';
+                        }
+                        return null;
+                      },
+                    ),
+                  ),
                   const Spacer(),
                   PaddingSpacecustom.horz(
                     10,
@@ -66,7 +118,7 @@ class TextformSWidget extends StatelessWidget {
                             onTap: () {
                               logic.EmailControl.text = '';
                             },
-                            child: Icon(CupertinoIcons.clear)),
+                            child: const Icon(IconlyLight.close_square)),
                       ),
                       style: textstyle.text_form(20, splashBlack),
                       onChanged: (value) {
@@ -77,9 +129,13 @@ class TextformSWidget extends StatelessWidget {
                         FocusManager.instance.primaryFocus?.unfocus();
                       },
                       validator: (value) {
-                        if (_Key.currentState!.validate()) {
-                          print('validtion is sucess email');
+                        var input = RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
+                        bool checking = input.hasMatch(value.toString());
+                        if (!checking) {
+                          return 'Give valid Email ';
                         }
+                        return null;
                       },
                     ),
                   ),
@@ -111,12 +167,12 @@ class TextformSWidget extends StatelessWidget {
                         ),
                         suffix: GestureDetector(
                           onTap: () {
-                            logic.password != logic.password;
+                            logic.password = !logic.password;
                             logic.update();
                           },
                           child: logic.password
-                              ? const Icon(CupertinoIcons.eye_slash)
-                              : const Icon(CupertinoIcons.eye_slash),
+                              ? const Icon(IconlyLight.password)
+                              : const Icon(IconlyBold.password),
                         ),
                       ),
                       style: textstyle.text_form(20, splashBlack),
@@ -126,48 +182,11 @@ class TextformSWidget extends StatelessWidget {
                         FocusManager.instance.primaryFocus?.unfocus();
                       },
                       validator: (value) {
-                        if(_Key.currentState!.validate()){
-                          
+                        if (value.toString().length <= 5) {
+                          return 'to Shoort';
                         }
+                        return null;
                       },
-                    ),
-                  ),
-                  const Spacer(),
-                  PaddingSpacecustom.horz(
-                    10,
-                    TextFormField(
-                      // controller: ,
-                      maxLines: 1,
-                      // obscureText: ,
-                      decoration: InputDecoration(
-                        border: const OutlineInputBorder(
-                          borderSide: BorderSide(
-                            width: 2.0,
-                          ),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: splashCyan, width: 1.5),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(
-                            color: splashBlue,
-                            width: 2.0,
-                          ),
-                        ),
-                        label: Text(
-                          "Name",
-                          style: textstyle.text_form(18, splashBlack),
-                        ),
-                        suffix: GestureDetector(
-                            onTap: () {}, child: Icon(CupertinoIcons.clear)),
-                      ),
-                      style: textstyle.text_form(20, splashBlack),
-                      onChanged: (value) {},
-                      textInputAction: TextInputAction.next,
-                      onTapOutside: (e) {
-                        FocusManager.instance.primaryFocus?.unfocus();
-                      },
-                      validator: (value) {},
                     ),
                   ),
                   const Spacer(),
@@ -181,13 +200,16 @@ class TextformSWidget extends StatelessWidget {
                     gradientc: true,
                     color: splashBlue,
                     scolor: splashCyan,
-                    onpress: () {},
+                    onpress: () {
+                      if (_Key.currentState!.validate()) {
+                        logic.clearthevalue();
+                      }
+                    },
                   ),
-                  const Spacer(),
                   Align(
                     alignment: Alignment.bottomRight,
                     child: TextButtonWidget.textButton(
-                      "i have account ?",
+                      "Already have account ?",
                       () {
                         Navigator.of(context).pushReplacement(
                           MaterialPageRoute(
@@ -196,9 +218,11 @@ class TextformSWidget extends StatelessWidget {
                             },
                           ),
                         );
+                        logic.clearthevalue();
                       },
                     ),
                   ),
+                  Spacer()
                 ],
               ),
             );

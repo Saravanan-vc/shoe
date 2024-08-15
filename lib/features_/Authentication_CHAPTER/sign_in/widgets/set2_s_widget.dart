@@ -8,16 +8,16 @@ class Set2SWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Splash_hor(
-              widget: SizedBox(
-                height: 130.h,
-                width: 210.w,
-                child: Image.asset('assets/green1.png'),
-              ),
-              endpoint: ScreenHW().width(context) / 4.8,
-              startpoint: -100,
-              top: 180,
-              rote: false,
-            );
+    return Splash_hor(
+      widget: SizedBox(
+        height: 130.h,
+        width: 210.w,
+        child: Image.asset('assets/green1.png'),
+      ),
+      endpoint: ScreenHW().width(context) / 4.8,
+      startpoint: -100,
+      top: 160,
+      rote: false,
+    );
   }
 }

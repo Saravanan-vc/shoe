@@ -22,13 +22,11 @@ class SignScreen extends StatelessWidget {
               ScreenHW().hight(context),
               ScreenHW().width(context),
             ),
-            const CircleSWidget(),
             const SetSWidget(),
-            const TextSWidget(),
             const Set2SWidget(),
+            const TextSWidget(),
             const TextformSWidget()
           ],
-          //hey dont forgot to make it spaerate
         ),
       ),
     );
