@@ -18,4 +18,12 @@ class textstyle {
       color: color,
     );
   }
+  // static TextStyle splashor(double fs, dynamic color) {
+  //   return TextStyle(
+  //     fontSize: fs.sp,
+  //     fontFamily: 'horsion',
+  //     fontWeight: FontWeight.w600,
+  //     color: color,
+  //   );
+  
 }
