@@ -5,12 +5,12 @@ import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
-import 'package:shoe/core/uni_widget_CHAPTER/button_customize_widget.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/button_customize/button_customize_widget.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/core/uni_widget_CHAPTER/text_button_widget.dart';
-import 'package:shoe/features_/Authentication_CHAPTER/Global_controller/Sign_login_Contoller.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/button_customize/text_button_widget.dart';
+import 'package:shoe/features_/Authentication_CHAPTER/sign_in/controller/Sign_Contoller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
 
 class TextformSWidget extends StatelessWidget {
@@ -32,7 +32,7 @@ class TextformSWidget extends StatelessWidget {
             color: splashWhite,
             borderRadius: BorderRadius.circular(8),
           ),
-          child: GetBuilder<SignLoginContoller>(builder: (logic) {
+          child: GetBuilder<SignContoller>(builder: (logic) {
             return Form(
               key: _Key,
               child: Column(
@@ -92,7 +92,7 @@ class TextformSWidget extends StatelessWidget {
                   PaddingSpacecustom.horz(
                     10,
                     TextFormField(
-                      controller: logic.EmailControl,
+                      controller: logic.emailControl,
                       maxLines: 1,
                       obscureText: false,
                       decoration: InputDecoration(
@@ -116,13 +116,13 @@ class TextformSWidget extends StatelessWidget {
                         ),
                         suffix: GestureDetector(
                             onTap: () {
-                              logic.EmailControl.text = '';
+                              logic.emailControl.text = '';
                             },
                             child: const Icon(IconlyLight.close_square)),
                       ),
                       style: textstyle.text_form(20, splashBlack),
                       onChanged: (value) {
-                        logic.EmailControl.text = value.toString().trim();
+                        logic.emailControl.text = value.toString().trim();
                       },
                       textInputAction: TextInputAction.next,
                       onTapOutside: (e) {
@@ -166,10 +166,7 @@ class TextformSWidget extends StatelessWidget {
                           style: textstyle.text_form(18, splashBlack),
                         ),
                         suffix: GestureDetector(
-                          onTap: () {
-                            logic.password = !logic.password;
-                            logic.update();
-                          },
+                          onTap: () => logic.loop(),
                           child: logic.password
                               ? const Icon(IconlyLight.password)
                               : const Icon(IconlyBold.password),
@@ -182,6 +179,9 @@ class TextformSWidget extends StatelessWidget {
                         FocusManager.instance.primaryFocus?.unfocus();
                       },
                       validator: (value) {
+                        if (value.toString().isEmpty) {
+                          return 'password not to be null';
+                        }
                         if (value.toString().length <= 5) {
                           return 'to Shoort';
                         }
