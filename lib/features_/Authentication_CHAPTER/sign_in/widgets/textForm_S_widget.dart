@@ -10,6 +10,7 @@ import 'package:shoe/core/uni_widget_CHAPTER/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/button_customize/text_button_widget.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/sign_in/controller/Sign_Contoller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
 
@@ -202,8 +203,16 @@ class TextformSWidget extends StatelessWidget {
                     scolor: splashCyan,
                     onpress: () {
                       if (_Key.currentState!.validate()) {
-                        logic.clearthevalue();
+                        logic.Fireauth(
+                          logic.emailControl.text,
+                          logic.passwordControl.text,
+                          context,
+                        );
                       }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBarwidget.errortnotificatioin(
+                            context, "Enter the requird values"),
+                      );
                     },
                   ),
                   Align(

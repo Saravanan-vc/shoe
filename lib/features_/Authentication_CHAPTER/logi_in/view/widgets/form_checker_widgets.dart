@@ -10,6 +10,7 @@ import 'package:shoe/core/uni_widget_CHAPTER/button_customize/button_customize_w
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/button_customize/text_button_widget.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/forgot_in/view/forgot_screen.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/controller/Login_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/sign_in/pages/sign_Screen.dart';
@@ -149,6 +150,10 @@ class FormCheckerWidgets extends StatelessWidget {
                       if (_Key.currentState!.validate()) {
                         logic.clearthevalue();
                       }
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBarwidget.errortnotificatioin(
+                            context, "Enter the requird values"),
+                      );
                     },
                   ),
                   const Spacer(),
