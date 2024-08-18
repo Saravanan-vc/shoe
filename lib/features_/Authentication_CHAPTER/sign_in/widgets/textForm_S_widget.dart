@@ -208,11 +208,12 @@ class TextformSWidget extends StatelessWidget {
                           logic.passwordControl.text,
                           context,
                         );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBarwidget.errortnotificatioin(
+                              context, "Enter the requird values"),
+                        );
                       }
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBarwidget.errortnotificatioin(
-                            context, "Enter the requird values"),
-                      );
                     },
                   ),
                   Align(

@@ -29,6 +29,7 @@ class FormCheckerWidgets extends StatelessWidget {
         elevation: 2,
         borderRadius: BorderRadius.circular(8),
         child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 2),
           height: ScreenHW().hight(context) / 2,
           width: ScreenHW().width(context) - 20.w,
           decoration: BoxDecoration(
@@ -148,12 +149,17 @@ class FormCheckerWidgets extends StatelessWidget {
                     scolor: splashCyan,
                     onpress: () {
                       if (_Key.currentState!.validate()) {
-                        logic.clearthevalue();
+                        logic.Fireauth(
+                          logic.emailControl.text,
+                          logic.passwordControl.text,
+                          context,
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBarwidget.errortnotificatioin(
+                              context, "Enter the requird values"),
+                        );
                       }
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBarwidget.errortnotificatioin(
-                            context, "Enter the requird values"),
-                      );
                     },
                   ),
                   const Spacer(),

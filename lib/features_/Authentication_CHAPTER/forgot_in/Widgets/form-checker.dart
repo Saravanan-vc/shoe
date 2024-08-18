@@ -103,12 +103,13 @@ class Formchecker extends StatelessWidget {
                     scolor: splashCyan,
                     onpress: () {
                       if (_key.currentState!.validate()) {
-                        logic.clearthevalue();
+                        logic.Fireauth(logic.emailControl.text, '', context);
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBarwidget.errortnotificatioin(
+                              context, "Enter the requird values"),
+                        );
                       }
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBarwidget.errortnotificatioin(
-                            context, "Enter the requird values"),
-                      );
                     },
                   ),
                 ],

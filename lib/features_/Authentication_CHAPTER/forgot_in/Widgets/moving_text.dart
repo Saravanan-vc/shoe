@@ -13,34 +13,35 @@ class MovingText extends StatelessWidget {
       bottom: 10,
       child: AnimatedTextKit(
         repeatForever: true,
+        
         animatedTexts: [
           RotateAnimatedText(
             'Puma',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'Nike',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'Adidas',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'Reebok',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'Asics',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'Under armour',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           ),
           RotateAnimatedText(
             'New balance',
-            textStyle: textstyle.splascomr(28, splashBlack),
+            textStyle: textstyle.movingtext(28, splashBlack),
           )
         ],
       ),

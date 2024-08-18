@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
@@ -7,15 +8,21 @@ class SnackBarwidget {
   static SnackBar correctnotificatioin(context, String subtext) {
     return SnackBar(
       elevation: 0,
-      duration: const Duration(milliseconds: 1150),
+      duration: const Duration(milliseconds: 1250),
       backgroundColor: Colors.transparent,
       dismissDirection: DismissDirection.endToStart,
       behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 120,
-          left: 10,
-          right: 10),
+      margin: const EdgeInsets.only(left: 10, right: 10),
       content: Container(
+        height: 60.h,
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          gradient: LinearGradient(
+              colors: [splashGreen, splashCyan],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight),
+        ),
         child: Row(
           children: [
             SizedBox(
@@ -29,9 +36,10 @@ class SnackBarwidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Sucessfully',
+                    'Sucessfully !!',
                     style: textstyle.text_form(18.1, splashBlack),
                   ),
                   Text(
@@ -47,18 +55,25 @@ class SnackBarwidget {
       ),
     );
   }
-   static SnackBar errortnotificatioin(context, String subtext) {
+
+  static SnackBar errortnotificatioin(context, String subtext) {
     return SnackBar(
       elevation: 0,
-      duration: const Duration(milliseconds: 1150),
+      duration: const Duration(milliseconds: 1250),
       backgroundColor: Colors.transparent,
       dismissDirection: DismissDirection.endToStart,
       behavior: SnackBarBehavior.floating,
-      margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 120,
-          left: 10,
-          right: 10),
+      margin: const EdgeInsets.only(left: 2, right: 2),
       content: Container(
+        height: 60.h,
+        padding: const EdgeInsets.symmetric(horizontal: 5),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
+          gradient: LinearGradient(
+              colors: [splashRed, splashOrange],
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight),
+        ),
         child: Row(
           children: [
             SizedBox(
@@ -72,14 +87,15 @@ class SnackBarwidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Error',
-                    style: textstyle.text_form(18.1, splashRed),
+                    '!Oops',
+                    style: textstyle.text_form(18.1, splashBlack),
                   ),
                   Text(
                     subtext,
-                    style: textstyle.text_form(14.1, splashRed),
+                    style: textstyle.text_form(14.1, splashBlack),
                   ),
                 ],
               ),

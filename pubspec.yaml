@@ -91,6 +91,9 @@ flutter:
     - family: Corm_f
       fonts:
         - asset: assets/Fonts/Cormorant_fonts.ttf
+    - family: p_show
+      fonts:
+        - asset: assets/Fonts/BebasNeue-Regular.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #

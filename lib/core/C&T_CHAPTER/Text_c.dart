@@ -10,6 +10,7 @@ class textstyle {
       color: color,
     );
   }
+
   static TextStyle splascomr(double fs, dynamic color) {
     return TextStyle(
       fontSize: fs.sp,
@@ -18,12 +19,13 @@ class textstyle {
       color: color,
     );
   }
-  // static TextStyle splashor(double fs, dynamic color) {
-  //   return TextStyle(
-  //     fontSize: fs.sp,
-  //     fontFamily: 'horsion',
-  //     fontWeight: FontWeight.w600,
-  //     color: color,
-  //   );
-  
+
+  static TextStyle movingtext(double fs, dynamic color) {
+    return TextStyle(
+      fontSize: fs.sp,
+      fontFamily: 'p_show',
+      fontWeight: FontWeight.w600,
+      color: color,
+    );
+  }
 }

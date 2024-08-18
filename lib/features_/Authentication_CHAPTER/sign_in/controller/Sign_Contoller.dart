@@ -6,7 +6,8 @@ import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/Authentication_blueprint/blue_auth.dart';
 
 class SignContoller extends GetxController implements loging_sign {
-  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  @override
+  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   @override
   TextEditingController emailControl = TextEditingController();
   @override
@@ -29,11 +30,12 @@ class SignContoller extends GetxController implements loging_sign {
     password = !password;
     update();
   }
-
-  void Fireauth(String email, String password, context) async {
+  
+  @override
+  void Fireauth(String? email, String? password, context) async {
     try {
-      await _firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      await firebaseAuth.createUserWithEmailAndPassword(
+          email: email!, password: password!);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.correctnotificatioin(context, "That you'r created ID"),
       );
@@ -46,4 +48,5 @@ class SignContoller extends GetxController implements loging_sign {
      
     }
   }
+  
 }
