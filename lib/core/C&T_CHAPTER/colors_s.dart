@@ -14,3 +14,5 @@ Color splashBlack = Colors.black;
 Color splashBlack4 = const Color.fromARGB(9, 0, 0, 0);
 //green collection
 Color splashGreen = Colors.greenAccent;
+// grey
+Color splashGrey = Colors.grey;

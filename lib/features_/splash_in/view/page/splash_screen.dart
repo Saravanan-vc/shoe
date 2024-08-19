@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/full_screen.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/pages/home_screen.dart';
 import 'package:shoe/features_/splash_in/view/widgets/circel_B_widget.dart';
 import 'package:shoe/features_/splash_in/view/widgets/circel_widget.dart';
 import 'package:shoe/features_/splash_in/view/widgets/quote_H_widget.dart';
@@ -23,7 +24,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Timer(
       const Duration(milliseconds: 3500),
       () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => const LogScreen()),
+        MaterialPageRoute(
+          builder: (context) => const HomeScreen(),
+          //Loginscr
+        ),
       ),
     );
   }
