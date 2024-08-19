@@ -1,9 +1,11 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/widgets/animatedcard/animated_card.dart';
 
 class CardSlider extends StatelessWidget {
   const CardSlider({super.key});
@@ -60,43 +62,23 @@ class CardSlider extends StatelessWidget {
               ),
             ),
             Expanded(
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  PaddingSpacecustom.only(
-                    9,
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      width: 230.w,
-                      decoration: BoxDecoration(
-                        color: splashBlack,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+              child: CarouselSlider(
+                items: const [
+                  AnimatedCard(
+                    imagep: 'assets/shoes4.png',
                   ),
-                  PaddingSpacecustom.only(
-                    9,
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      width: 230.w,
-                      decoration: BoxDecoration(
-                        color: splashBlack,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
-                  ),
-                  PaddingSpacecustom.only(
-                    9,
-                    Container(
-                      margin: EdgeInsets.symmetric(vertical: 10),
-                      width: 230.w,
-                      decoration: BoxDecoration(
-                        color: splashBlack,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                    ),
+                  AnimatedCard(
+                    // we want to as widget to the tree
+                    imagep: 'assets/shoes4.png',
                   ),
                 ],
+                options: CarouselOptions(
+                    viewportFraction: 1,
+                    height: 2248.h,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    pageSnapping: true,
+                    disableCenter: true),
               ),
             ),
           ],

@@ -8,14 +8,14 @@ class CardFixed extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-      physics: NeverScrollableScrollPhysics(),
+      physics: const NeverScrollableScrollPhysics(),
       shrinkWrap: true,
       itemCount: 20,
       gridDelegate:
           const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
       itemBuilder: (context, index) {
         return Container(
-          margin: EdgeInsets.all(8),
+          margin: const EdgeInsets.all(8),
           height: 80.h,
           width: 80.w,
           color: splashRed,
