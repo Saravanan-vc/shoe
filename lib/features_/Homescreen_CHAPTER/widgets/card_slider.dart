@@ -5,6 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/ui_property/proudts_name.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/widgets/animatedcard/animated_card.dart';
 
 class CardSlider extends StatelessWidget {
@@ -30,31 +32,31 @@ class CardSlider extends StatelessWidget {
                     animatedTexts: [
                       RotateAnimatedText(
                         'Puma',
-                        textStyle: textstyle.movingtext(70, splashBlue),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       ),
                       RotateAnimatedText(
                         'Nike',
-                        textStyle: textstyle.movingtext(70, splashCyan),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       ),
                       RotateAnimatedText(
                         'Adidas',
-                        textStyle: textstyle.movingtext(70, splashBlue),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       ),
                       RotateAnimatedText(
                         'Reebok',
-                        textStyle: textstyle.movingtext(70, splashCyan),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       ),
                       RotateAnimatedText(
                         'Asics',
-                        textStyle: textstyle.movingtext(70, splashBlue),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       ),
                       RotateAnimatedText(
                         'Under armour',
-                        textStyle: textstyle.movingtext(60, splashCyan),
+                        textStyle: textstyle.movingtext(60, splashBlack),
                       ),
                       RotateAnimatedText(
                         'New balance',
-                        textStyle: textstyle.movingtext(70, splashBlue),
+                        textStyle: textstyle.movingtext(70, splashBlack),
                       )
                     ],
                   ),
@@ -63,21 +65,55 @@ class CardSlider extends StatelessWidget {
             ),
             Expanded(
               child: CarouselSlider(
-                items: const [
+                items: [
                   AnimatedCard(
-                    imagep: 'assets/shoes4.png',
+                    name: productsname[0].toUpperCase(),
+                    widgetshoe: SizedBox(
+                        height: 180,
+                        width: ScreenHW().hight(context) - 70,
+                        child: Image.asset('assets/shoes4.png')),
                   ),
                   AnimatedCard(
-                    // we want to as widget to the tree
-                    imagep: 'assets/shoes4.png',
+                    name: productsname[1].toUpperCase(),
+                    widgetshoe: SizedBox(
+                      height: 120,
+                      width: ScreenHW().hight(context) - 30,
+                      child: Transform.rotate(
+                        angle: 24.7,
+                        child: Image.asset('assets/blue1.png'),
+                      ),
+                    ),
+                  ),
+                  AnimatedCard(
+                    name: productsname[2].toUpperCase(),
+                    widgetshoe: SizedBox(
+                      height: 130,
+                      width: ScreenHW().hight(context) - 30,
+                      child: Transform.rotate(
+                        angle: 52.99,
+                        child: Image.asset('assets/green1.png'),
+                      ),
+                    ),
+                  ),
+                  AnimatedCard(
+                    name: productsname[2].toUpperCase(),
+                    widgetshoe: SizedBox(
+                      height: 190,
+                      width: ScreenHW().hight(context) - 95,
+                      child: Transform.rotate(
+                        angle: 24.7,
+                        child: Image.asset('assets/jrodan.png'),
+                      ),
+                    ),
                   ),
                 ],
                 options: CarouselOptions(
+                    autoPlayAnimationDuration: const Duration(seconds: 2),
+                    scrollPhysics: AlwaysScrollableScrollPhysics(),
                     viewportFraction: 1,
                     height: 2248.h,
                     autoPlay: true,
                     enlargeCenterPage: true,
-                    pageSnapping: true,
                     disableCenter: true),
               ),
             ),
