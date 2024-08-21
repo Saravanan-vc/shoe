@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/widgets/animatedcard/blue_circle.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/widgets/animatedcard/name_card.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/widgets/animatedcard/shoe_drop.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/blue_circle.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/shoe_drop.dart';
 
 class AnimatedCard extends StatelessWidget {
   final Widget widgetshoe;
   final String name;
-  const AnimatedCard({super.key, required this.widgetshoe, required this.name});
+  final Color fcolor;
+ final Color scolor;
+  const AnimatedCard({super.key, required this.widgetshoe, required this.name, required this.fcolor, required this.scolor});
 
   @override
   Widget build(BuildContext context) {
@@ -37,17 +41,19 @@ class AnimatedCard extends StatelessWidget {
                 ),
               ),
             ),
-            const BlueCircleH(),
+            BlueCircleH(fcolor: fcolor,scolor: scolor,),
             NameCard(
               name: name,
             ),
-            PositionClass(right: 60.0, top: 6.0).global(
-              LikeFavrouit(
-                ontap: () {
-                // want to add some heart condiation
-                },
-                inital: false,
-              ),
+            GetBuilder<HomeController>(
+              builder: (logic) {
+                return PositionClass(right: 60.0, top: 6.0).global(
+                  LikeFavrouit(
+                    ontap: logic.favrouit,
+                    inital: logic.unfavrouit,
+                  ),
+                );
+              },
             ),
             ShoeDrop(
               widget: widgetshoe,

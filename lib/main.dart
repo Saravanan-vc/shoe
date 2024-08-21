@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoe/core/controller_area.dart';
-import 'package:shoe/features_/splash_in/view/page/splash_screen.dart';
+import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/page/splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

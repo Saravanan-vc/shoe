@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/circle_container.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 
 class BlueCircleH extends StatelessWidget {
-  const BlueCircleH({super.key});
+ final Color fcolor;
+ final Color scolor;
+  const BlueCircleH({super.key, required this.fcolor, required this.scolor});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +13,8 @@ class BlueCircleH extends StatelessWidget {
       CircleContainer(
         H: 120,
         W: 120,
-        Color: splashCyan,
-        Scolor: splashBlue,
+        Color: fcolor,
+        Scolor: scolor,
       ),
     );
   }

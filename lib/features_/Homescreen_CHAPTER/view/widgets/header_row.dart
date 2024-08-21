@@ -5,7 +5,7 @@ import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/sizedbox_hight.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/widgets/search_bar.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/search_bar.dart';
 
 class HeaderRow extends StatelessWidget {
   const HeaderRow({super.key});
