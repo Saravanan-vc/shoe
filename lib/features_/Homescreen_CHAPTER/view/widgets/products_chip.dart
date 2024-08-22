@@ -16,14 +16,14 @@ class ProductsChip extends StatelessWidget {
         height: 40.h,
         width: ScreenHW().width(context) - 20,
         child: ListView.builder(
-          itemCount: productsname.length,
+          itemCount: productsName.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return PaddingSpacecustom.only(
               7,
               Chip(
                 backgroundColor: splashWhite,
-                label: Text(productsname[index]),
+                label: Text(productsName[index]),
               ),
             );
           },

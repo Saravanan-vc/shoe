@@ -8,8 +8,11 @@ class textstyle {
       fontFamily: 'Simple_f',
       fontWeight: FontWeight.w600,
       color: color,
-
     );
+  }
+
+  static TextStyle normal(double fs, dynamic color, double hight) {
+    return TextStyle(fontSize: fs.sp, color: color, height: hight);
   }
 
   static TextStyle splascomr(double fs, dynamic color) {
@@ -20,7 +23,8 @@ class textstyle {
       color: color,
     );
   }
-   static TextStyle splasHi(double fs, dynamic color,double hight) {
+
+  static TextStyle splasHi(double fs, dynamic color, double hight) {
     return TextStyle(
       fontSize: fs.sp,
       fontFamily: 'Corm_f',
@@ -34,7 +38,6 @@ class textstyle {
     return TextStyle(
       fontSize: fs.sp,
       fontFamily: 'p_show',
-      fontWeight: FontWeight.w600,
       color: color,
     );
   }

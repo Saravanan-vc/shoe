@@ -1,4 +1,4 @@
-List<String> productsname = [
+List<String> productsName = [
   'Puma',
   'Nike',
   'Adidas',

@@ -17,7 +17,7 @@ class CardSlider extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 280.h,
-      width: 1.w,
+      width: ScreenHW().width(context),
       child: PaddingSpacecustom.horz(
         10,
         Row(
@@ -33,15 +33,15 @@ class CardSlider extends StatelessWidget {
                     animatedTexts: [
                       RotateAnimatedText(
                         'HIGH ON TERNDRS',
-                        textStyle: textstyle.movingtext(60, splashBlack),
+                        textStyle: textstyle.movingtext(60, splashBlack3),
                       ),
                       RotateAnimatedText(
                         'MASTER PIECE',
-                        textStyle: textstyle.movingtext(60, splashBlack),
+                        textStyle: textstyle.movingtext(60, splashBlack3),
                       ),
                       RotateAnimatedText(
                         'CUsTOMISE',
-                        textStyle: textstyle.movingtext(70, splashBlack),
+                        textStyle: textstyle.movingtext(70, splashBlack3),
                       ),
                     ],
                   ),
@@ -55,9 +55,11 @@ class CardSlider extends StatelessWidget {
                     itemCount: logic.products.length,
                     itemBuilder: (context, ind, index) {
                       return AnimatedCard(
+                        favrouit: logic.unfavrouit,
+                        ontap: logic.favrouit,
                         name: logic.products[ind].name!.toUpperCase(),
                         widgetshoe: SizedBox(
-                          height: 130,
+                          height: 120,
                           width: ScreenHW().hight(context) - 18,
                           child: Transform.rotate(
                             angle: 24.7,
@@ -65,8 +67,8 @@ class CardSlider extends StatelessWidget {
                                 Image.network('${logic.products[ind].image}'),
                           ),
                         ),
-                        fcolor: splashBlue,
-                        scolor: splashCyan,
+                        fcolor: splashBlack,
+                        scolor: splashBlack3,
                       );
                     },
                     options: CarouselOptions(

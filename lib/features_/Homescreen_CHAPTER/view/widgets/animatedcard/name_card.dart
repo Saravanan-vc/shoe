@@ -12,7 +12,7 @@ class NameCard extends StatelessWidget {
     return Splash_hor(
       widget: Text(
         name,
-        style: textstyle.splascomr(28, splashBlack),
+        style: textstyle.normal(18, splashBlack, 0),
       ),
       endpoint: 10,
       startpoint: -30,

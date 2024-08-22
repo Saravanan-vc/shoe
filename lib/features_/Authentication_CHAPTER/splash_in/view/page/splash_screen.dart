@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/full_screen.dart';
-import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
+// import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/view/pages/home_screen.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_B_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_widget.dart';

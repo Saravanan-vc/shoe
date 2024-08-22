@@ -10,8 +10,8 @@ class QuoteHWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return PositionClass(left: 60.0, bottom: 200.0).global(
       Text(
-        "New shoes  \nare always a \ngood idea!",
-        style: textstyle.splascomr(30,splashWhite),
+        "Throwback  \nto \nFuture",
+        style: textstyle.splascomr(30, splashWhite),
       ),
     );
   }

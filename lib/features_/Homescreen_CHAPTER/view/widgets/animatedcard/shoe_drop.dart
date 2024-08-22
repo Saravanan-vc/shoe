@@ -11,7 +11,7 @@ class ShoeDrop extends StatelessWidget {
     return PositionClass(top: 300.0, right: 0.0).global(
       SlashShoe(
         startpoint: -150.0,
-        endpoint: 70,
+        endpoint: 90,
         rightmove: -280,
         widget: widget,
       ),

@@ -14,7 +14,7 @@ class LikeFavrouit extends StatelessWidget {
       child: inital
           ? Icon(
               IconlyBold.heart,
-              color: splashRed,
+              color: splashBlack,
             )
           : const Icon(IconlyLight.heart),
     );
