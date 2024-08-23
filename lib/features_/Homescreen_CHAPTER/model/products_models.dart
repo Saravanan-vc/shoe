@@ -15,13 +15,16 @@ class ProductsModels {
   @JsonKey(name: 'name')
   String? name;
 
+  bool like ;
+
   ProductsModels({
     required this.id,
     required this.image,
     required this.name,
     required this.price,
+    this.like = false,
   });
 
   factory ProductsModels.fromjson(Map<String, dynamic> json) =>
-       _$ProductsModelsFromJson(json);
+      _$ProductsModelsFromJson(json);
 }

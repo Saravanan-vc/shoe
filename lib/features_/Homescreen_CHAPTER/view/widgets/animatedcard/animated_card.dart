@@ -54,7 +54,12 @@ class AnimatedCard extends StatelessWidget {
               scolor: scolor,
             ),
             NameCard(
+              fonts: 18,
               name: name,
+              endpoint: 10,
+              startpoint: -30,
+              top: 30,
+              rote: false,
             ),
             PositionClass(right: 60.0, top: 6.0).global(
               LikeFavrouit(

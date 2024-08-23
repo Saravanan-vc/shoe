@@ -7,10 +7,9 @@ import 'package:shoe/features_/Homescreen_CHAPTER/model/products_models.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
-  bool unfavrouit = false;
-  void favrouit() {
-    unfavrouit = !unfavrouit;
-    update();
+  bool favrouit(bool like) {
+    bool unlike = !like;
+    return unlike;
   }
 
   List<ProductsModels> products = [];

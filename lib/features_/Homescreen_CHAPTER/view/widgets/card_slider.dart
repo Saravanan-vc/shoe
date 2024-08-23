@@ -55,8 +55,11 @@ class CardSlider extends StatelessWidget {
                     itemCount: logic.products.length,
                     itemBuilder: (context, ind, index) {
                       return AnimatedCard(
-                        favrouit: logic.unfavrouit,
-                        ontap: logic.favrouit,
+                        favrouit: logic.products[ind].like,
+                        ontap: () {
+                          logic.products[ind].like = logic.favrouit(logic.products[ind].like);
+                          logic.update();
+                        },
                         name: logic.products[ind].name!.toUpperCase(),
                         widgetshoe: SizedBox(
                           height: 120,

@@ -5,19 +5,30 @@ import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
 
 class NameCard extends StatelessWidget {
   final String name;
-  const NameCard({super.key, required this.name});
+  final double endpoint;
+  final double startpoint;
+  final double top;
+  final bool rote;
+  final double fonts;
+  const NameCard(
+      {super.key,
+      required this.name,
+      required this.endpoint,
+      required this.startpoint,
+      required this.top,
+      required this.rote, required this.fonts});
 
   @override
   Widget build(BuildContext context) {
     return Splash_hor(
       widget: Text(
         name,
-        style: textstyle.normal(18, splashBlack, 0),
+        style: textstyle.normal(fonts, splashBlack, 0),
       ),
-      endpoint: 10,
-      startpoint: -30,
-      top: 30,
-      rote: false,
+      endpoint: endpoint,
+      startpoint: startpoint,
+      top: top,
+      rote: rote,
     );
   }
 }
