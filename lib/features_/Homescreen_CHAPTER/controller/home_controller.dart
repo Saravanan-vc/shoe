@@ -34,4 +34,70 @@ class HomeController extends GetxController {
       SnackBarwidget.errortnotificatioin(Get.context, e.toString());
     }
   }
+  // fixed card below this
+
+  List<List> allimages = [
+    [
+      'assets/ys.png',
+      'assets/airmax.png',
+    ],
+    ['assets/green.png', 'assets/blue1.png']
+  ];
+  List<List> allname = [
+    [
+      'Die Mood',
+      'SB Dunk',
+    ],
+    ['Air Force C', 'Air Force 2']
+  ];
+  //fuctions for chanign image
+  int imagescree = 0;
+  int imagescree2 = 0;
+  bool name = false;
+  bool nam2 = false;
+  check(int i) {
+    if (i == 1) {
+      return imagescree;
+    } else {
+      return imagescree2;
+    }
+  }
+
+  check2(int i) {
+    switch (i) {
+      case 0:
+        return nam2;
+
+      case 1:
+        return name;
+    }
+  }
+
+  boolchange(int i) {
+    switch (i) {
+      case 0:
+        nam2 = !nam2;
+        return nam2;
+
+      case 1:
+        name = !name;
+        return name;
+    }
+  }
+
+  doubletap(int i) {
+    if (i == 1) {
+      if (imagescree == allimages[0].length - 1) {
+        imagescree = 0;
+      } else {
+        imagescree = imagescree + 1;
+      }
+    } else {
+      if (imagescree2 == allimages[0].length - 1) {
+        imagescree2 = 0;
+      } else {
+        imagescree2 = imagescree2 + 1;
+      }
+    }
+  }
 }

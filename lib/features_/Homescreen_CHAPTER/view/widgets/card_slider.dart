@@ -1,4 +1,5 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -57,7 +58,8 @@ class CardSlider extends StatelessWidget {
                       return AnimatedCard(
                         favrouit: logic.products[ind].like,
                         ontap: () {
-                          logic.products[ind].like = logic.favrouit(logic.products[ind].like);
+                          logic.products[ind].like =
+                              logic.favrouit(logic.products[ind].like);
                           logic.update();
                         },
                         name: logic.products[ind].name!.toUpperCase(),
@@ -65,9 +67,9 @@ class CardSlider extends StatelessWidget {
                           height: 120,
                           width: ScreenHW().hight(context) - 18,
                           child: Transform.rotate(
-                            angle: 24.7,
-                            child:
-                                Image.network('${logic.products[ind].image}'),
+                            angle: 24.5,
+                            child: CachedNetworkImage(
+                                imageUrl: '${logic.products[ind].image}'),
                           ),
                         ),
                         fcolor: splashBlack,

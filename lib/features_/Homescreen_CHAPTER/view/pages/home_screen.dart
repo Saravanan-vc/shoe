@@ -19,12 +19,11 @@ class HomeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              spacehight.hightverys(context),
               const HeaderRow(),
               spacehight.hightverys(context),
               const CardSlider(),
               spacehight.hightverys(context),
-               CardFixed(),
+              CardFixed(),
             ],
           ),
         ),

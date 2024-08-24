@@ -54,6 +54,7 @@ class AnimatedCard extends StatelessWidget {
               scolor: scolor,
             ),
             NameCard(
+              call: () {},
               fonts: 18,
               name: name,
               endpoint: 10,

@@ -10,20 +10,26 @@ class NameCard extends StatelessWidget {
   final double top;
   final bool rote;
   final double fonts;
+  final VoidCallback call;
   const NameCard(
       {super.key,
       required this.name,
       required this.endpoint,
       required this.startpoint,
       required this.top,
-      required this.rote, required this.fonts});
+      required this.rote,
+      required this.fonts,
+      required this.call });
 
   @override
   Widget build(BuildContext context) {
     return Splash_hor(
-      widget: Text(
-        name,
-        style: textstyle.normal(fonts, splashBlack, 0),
+      widget: GestureDetector(
+        onTap: call,
+        child: Text(
+          name,
+          style: textstyle.normal(fonts, splashBlack, 0),
+        ),
       ),
       endpoint: endpoint,
       startpoint: startpoint,
