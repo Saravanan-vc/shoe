@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/full_screen.dart';
 // import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/view/pages/home_screen.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_B_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/quote_H_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/shoe_widget.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/bottomNavigator.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(milliseconds: 3500),
       () => Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => const HomeScreen(),
+          builder: (context) => const Bottomnavigator(),
           //Loginscr
         ),
       ),

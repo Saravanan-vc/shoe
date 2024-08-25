@@ -1,23 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'products_models.dart';
+part of 'fixedmodel.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductsModels _$ProductsModelsFromJson(Map<String, dynamic> json) =>
-    ProductsModels(
+Fixedmodel _$FixedmodelFromJson(Map<String, dynamic> json) => Fixedmodel(
       id: (json['id'] as num?)?.toInt(),
       image: json['image'] as String?,
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toInt(),
+      like: json['like'] as bool? ?? false,
     );
 
-Map<String, dynamic> _$ProductsModelsToJson(ProductsModels instance) =>
+Map<String, dynamic> _$FixedmodelToJson(Fixedmodel instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'image': instance.image,
-      'price': instance.price,
       'name': instance.name,
+      'price': instance.price,
+      'image': instance.image,
+      'like': instance.like,
     };

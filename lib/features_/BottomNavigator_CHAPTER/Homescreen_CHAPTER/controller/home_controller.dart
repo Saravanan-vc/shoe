@@ -3,7 +3,8 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/api/apilink.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/model/products_models.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/model/cardfixed.dart/fixedmodel.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/model/products_models.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
@@ -13,10 +14,12 @@ class HomeController extends GetxController {
   }
 
   List<ProductsModels> products = [];
+
   @override
   void onInit() async {
     super.onInit();
     await fetchproducts();
+    await fetchcardapi();
   }
 
   Future<void> fetchproducts() async {
@@ -34,28 +37,32 @@ class HomeController extends GetxController {
       SnackBarwidget.errortnotificatioin(Get.context, e.toString());
     }
   }
-  // fixed card below this
 
-  List<List> allimages = [
-    [
-      'assets/ys.png',
-      'assets/airmax.png',
-    ],
-    ['assets/green.png', 'assets/blue1.png']
-  ];
-  List<List> allname = [
-    [
-      'Die Mood',
-      'SB Dunk',
-    ],
-    ['Air Force C', 'Air Force 2']
-  ];
+  // fixed card below this
+  List<Fixedmodel> caedFixed = [];
+
+  Future<void> fetchcardapi() async {
+    try {
+      var retiveapi = await http.get(Uri.parse(cardfixedapi));
+      if (retiveapi.statusCode == 200) {
+        var jsondecoe = json.decode(retiveapi.body) as List;
+        List<Fixedmodel> cardProduct =
+            jsondecoe.map((data) => Fixedmodel.fromjson(data)).toList();
+        caedFixed.clear();
+        caedFixed.assignAll(cardProduct);
+      }
+    } catch (e) {
+      SnackBarwidget.errortnotificatioin(Get.context, e.toString());
+    }
+  }
+
   //fuctions for chanign image
   int imagescree = 0;
   int imagescree2 = 0;
   bool name = false;
   bool nam2 = false;
   check(int i) {
+    // it showes whcih list want to use in the index gride
     if (i == 1) {
       return imagescree;
     } else {
@@ -64,6 +71,7 @@ class HomeController extends GetxController {
   }
 
   check2(int i) {
+    // this function is help to showe the name prodcut
     switch (i) {
       case 0:
         return nam2;
@@ -74,30 +82,27 @@ class HomeController extends GetxController {
   }
 
   boolchange(int i) {
+    //this function is help to showe the name of the currenct product
     switch (i) {
       case 0:
         nam2 = !nam2;
-        return nam2;
 
       case 1:
         name = !name;
-        return name;
     }
   }
 
   doubletap(int i) {
-    if (i == 1) {
-      if (imagescree == allimages[0].length - 1) {
-        imagescree = 0;
-      } else {
-        imagescree = imagescree + 1;
-      }
-    } else {
-      if (imagescree2 == allimages[0].length - 1) {
-        imagescree2 = 0;
-      } else {
-        imagescree2 = imagescree2 + 1;
-      }
+    // this function is help to change the image in doulble tap
+    switch (i) {
+      case 0:
+        imagescree2 = imagescree2 == caedFixed.length - 1
+            ? imagescree2 = 0
+            : imagescree2 + 1;
+      case 1:
+      // imagescree = imagescree == allimages[0].length - 1
+      //     ? imagescree = 0
+      //     : imagescree + 1;
     }
   }
 }

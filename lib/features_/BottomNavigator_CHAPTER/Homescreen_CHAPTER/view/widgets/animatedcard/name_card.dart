@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
@@ -19,16 +20,21 @@ class NameCard extends StatelessWidget {
       required this.top,
       required this.rote,
       required this.fonts,
-      required this.call });
+      required this.call});
 
   @override
   Widget build(BuildContext context) {
     return Splash_hor(
-      widget: GestureDetector(
-        onTap: call,
-        child: Text(
-          name,
-          style: textstyle.normal(fonts, splashBlack, 0),
+      widget: SizedBox(
+        width: 120.w,
+        child: GestureDetector(
+          onTap: call,
+          child: Text(
+            name,
+            style: textstyle.normal(fonts, splashBlack, 0),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       ),
       endpoint: endpoint,

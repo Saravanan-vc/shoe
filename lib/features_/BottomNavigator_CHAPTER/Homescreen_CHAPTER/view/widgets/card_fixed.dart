@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -6,9 +7,9 @@ import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
-import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
-import 'package:shoe/features_/Productscreen_CHAPTER/productscreen.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/productscreen.dart';
 
 // ignore: must_be_immutable
 class CardFixed extends StatelessWidget {
@@ -26,7 +27,7 @@ class CardFixed extends StatelessWidget {
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: logic.allimages.length,
+              itemCount: 1,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisExtent: 220, crossAxisCount: 2, crossAxisSpacing: 2),
               itemBuilder: (context, index) {
@@ -56,23 +57,23 @@ class CardFixed extends StatelessWidget {
                             ),
                           ),
                         ),
+                        // shoe images are below ----------
                         SizedBox(
                           height: 120,
                           width: ScreenHW().hight(context) - 18,
                           child: Transform.rotate(
                             angle: 24.5,
                             child: GestureDetector(
-                              onDoubleTap: () {
-                                logic.doubletap(index);
-                                logic.update();
-                              },
-                              child: Image.asset(
-                                logic.allimages[index][logic.check(index)],
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
+                                onDoubleTap: () {
+                                  logic.doubletap(index);
+                                  logic.update();
+                                },
+                                child: CachedNetworkImage(
+                                    imageUrl:
+                                        '${logic.caedFixed[logic.imagescree2].image}')),
                           ),
                         ),
+                        //shoe name and like button are below ----------
                         Visibility(
                           visible: logic.check2(index),
                           child: NameCard(
@@ -87,9 +88,9 @@ class CardFixed extends StatelessWidget {
                               );
                             },
                             fonts: 24,
-                            name: logic.allname[index][logic.check(index)],
+                            name: '${logic.caedFixed[logic.imagescree2].name}',
                             endpoint: 10,
-                            startpoint: 1,
+                            startpoint: 8,
                             top: 170,
                             rote: false,
                           ),
@@ -100,7 +101,7 @@ class CardFixed extends StatelessWidget {
                             widget: const Icon(IconlyLight.heart),
                             endpoint: 10,
                             top: 172,
-                            startpoint: 1,
+                            startpoint: 8,
                             right: 30,
                           ),
                         ),
@@ -117,4 +118,4 @@ class CardFixed extends StatelessWidget {
   }
 }
 
-// want to make it performance , remmber to make it 
+// want to make it performance , remmber to make it
