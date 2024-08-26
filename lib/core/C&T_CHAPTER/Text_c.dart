@@ -14,6 +14,9 @@ class textstyle {
   static TextStyle normal(double fs, dynamic color, double hight) {
     return TextStyle(fontSize: fs.sp, color: color, height: hight);
   }
+   static TextStyle normalhard(double fs, dynamic color, double hight) {
+    return TextStyle(fontSize: fs.sp, color: color, height: hight,fontWeight: FontWeight.w800,);
+  }
 
   static TextStyle splascomr(double fs, dynamic color) {
     return TextStyle(

@@ -18,3 +18,4 @@ Color splashBlack2 = const Color.fromARGB(13, 0, 0, 0);
 Color splashGreen = Colors.greenAccent;
 // grey
 Color splashGrey = Colors.grey;
+Color splashGrey2 = const Color.fromARGB(117, 158, 158, 158);

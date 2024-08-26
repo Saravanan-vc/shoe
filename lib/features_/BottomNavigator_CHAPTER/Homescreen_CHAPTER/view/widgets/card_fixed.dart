@@ -2,14 +2,14 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconly/iconly.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/productscreen.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/pages/productscreen.dart';
 
 // ignore: must_be_immutable
 class CardFixed extends StatelessWidget {
@@ -27,7 +27,7 @@ class CardFixed extends StatelessWidget {
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
-              itemCount: 1,
+              itemCount: 2,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   mainAxisExtent: 220, crossAxisCount: 2, crossAxisSpacing: 2),
               itemBuilder: (context, index) {
@@ -69,8 +69,7 @@ class CardFixed extends StatelessWidget {
                                   logic.update();
                                 },
                                 child: CachedNetworkImage(
-                                    imageUrl:
-                                        '${logic.caedFixed[logic.imagescree2].image}')),
+                                    imageUrl: logic.checkimage(index))),
                           ),
                         ),
                         //shoe name and like button are below ----------
@@ -82,23 +81,44 @@ class CardFixed extends StatelessWidget {
                                 context,
                                 CupertinoPageRoute(
                                   builder: (context) {
-                                    return const Productscreen();
+                                    return Productscreen(
+                                      index: index,
+                                      Image: logic.checkimage(index),
+                                    );
                                   },
                                 ),
                               );
                             },
                             fonts: 24,
-                            name: '${logic.caedFixed[logic.imagescree2].name}',
+                            name: logic.checkname(index),
                             endpoint: 10,
                             startpoint: 8,
                             top: 170,
                             rote: false,
                           ),
                         ),
+
                         Visibility(
                           visible: logic.check2(index),
                           child: Splash_hor(
-                            widget: const Icon(IconlyLight.heart),
+                            widget: LikeFavrouit(
+                              ontap: () {
+                                switch (index) {
+                                  case 0:
+                                    logic.caedFixed[logic.imagescree2].like =
+                                        logic.favrouit(logic
+                                            .caedFixed[logic.imagescree2].like);
+                                  case 1:
+                                    logic.secondfixed[logic.imagescree].like =
+                                        logic.favrouit(logic
+                                            .secondfixed[logic.imagescree]
+                                            .like);
+                                }
+
+                                logic.update();
+                              },
+                              inital: logic.checklike(index),
+                            ),
                             endpoint: 10,
                             top: 172,
                             startpoint: 8,
@@ -117,5 +137,3 @@ class CardFixed extends StatelessWidget {
     );
   }
 }
-
-// want to make it performance , remmber to make it

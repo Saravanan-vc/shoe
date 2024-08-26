@@ -7,4 +7,9 @@ class spacehight {
       height: ScreenHW().hight(context) * 0.020,
     );
   }
+  static SizedBox widthtverys(context) {
+    return SizedBox(
+      height: ScreenHW().width(context) * 0.020,
+    );
+  }
 }
