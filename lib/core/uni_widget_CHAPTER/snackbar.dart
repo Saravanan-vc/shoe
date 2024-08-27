@@ -28,7 +28,7 @@ class SnackBarwidget {
             SizedBox(
               height: 55,
               width: 55,
-              child: Image.asset("assets/logo/puma.png"),
+              child: Image.asset("assets/logo/nike.png"),
             ),
             const SizedBox(
               width: 8,
@@ -79,7 +79,7 @@ class SnackBarwidget {
             SizedBox(
               height: 55,
               width: 55,
-              child: Image.asset("assets/logo/puma.png"),
+              child: Image.asset("assets/logo/nike.png"),
             ),
             const SizedBox(
               width: 8,

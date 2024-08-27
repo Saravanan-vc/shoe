@@ -1,9 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/full_screen.dart';
-// import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
+import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_B_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/quote_H_widget.dart';
@@ -21,15 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(
-      const Duration(milliseconds: 3500),
-      () => Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const Bottomnavigator(),
-          //Loginscr
-        ),
-      ),
-    );
+    start();
   }
 
   @override
@@ -49,6 +42,25 @@ class _SplashScreenState extends State<SplashScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  void start() async {
+    SharedPreferences preferences = await SharedPreferences.getInstance();
+    bool? login = await preferences.getBool('login');
+    Timer(
+      const Duration(milliseconds: 3500),
+      () => login == true
+          ? Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Bottomnavigator(),
+              ),
+            )
+          : Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const LogScreen(),
+              ),
+            ),
     );
   }
 }

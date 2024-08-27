@@ -9,6 +9,7 @@ class Appbarcus {
     return AppBar(
         backgroundColor: splashWhite,
         leading: const Icon(IconlyLight.category),
+        
         actions: [
           PaddingSpacecustom.only(
             8.sp,

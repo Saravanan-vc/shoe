@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/sizedbox_hight.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/pages/home_screen.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/card_fixed.dart';
 
 class Bottomnavigator extends StatefulWidget {
   const Bottomnavigator({super.key});
@@ -21,6 +24,29 @@ class _BottomnavigatorState extends State<Bottomnavigator> {
   Widget build(BuildContext context) {
     List body = [const HomeScreen()];
     return Scaffold(
+      // TODO: adding another screen to make it so asswome
+      drawer: Drawer(
+        width: ScreenHW().width(context),
+        backgroundColor: splashTrans,
+        child: Column(
+          children: [
+            spacehight.hightverys(context),
+            spacehight.hightverys(context),
+            spacehight.hightverys(context),
+            spacehight.hightverys(context),
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 17.0),
+                child: Text(
+                  "Foot ball shoes",
+                  style: textstyle.normal(40, splashWhite, 2.5),
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
       backgroundColor: splashWhite,
       body: body[0],
       bottomNavigationBar: PaddingSpacecustom.horz(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/sizedbox_hight.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/appbar.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/card_fixed.dart';
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: splashWhite,
       appBar: Appbarcus.Nike(),
+    
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

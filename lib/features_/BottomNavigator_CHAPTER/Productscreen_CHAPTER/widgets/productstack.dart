@@ -51,8 +51,6 @@ class Productstack extends StatelessWidget {
               ),
             ),
           ),
-          //selection of size
-          PositionClass(top: 130.0, left: 18.0).global(const Sizeofshoe()),
 
           //product like
           PositionClass(right: 20.0, top: 5.0).global(
@@ -126,6 +124,8 @@ class Productstack extends StatelessWidget {
               ),
             ),
           ),
+          //selection of size
+          PositionClass(top: 130.0, left: 18.0).global(const Sizeofshoe()),
         ],
       ),
     );

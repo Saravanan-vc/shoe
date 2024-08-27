@@ -19,3 +19,6 @@ Color splashGreen = Colors.greenAccent;
 // grey
 Color splashGrey = Colors.grey;
 Color splashGrey2 = const Color.fromARGB(117, 158, 158, 158);
+
+// transpernt
+Color splashTrans = Colors.transparent;

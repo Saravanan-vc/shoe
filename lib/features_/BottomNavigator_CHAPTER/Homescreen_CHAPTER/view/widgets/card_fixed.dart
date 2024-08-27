@@ -39,7 +39,7 @@ class CardFixed extends StatelessWidget {
                   child: AnimatedContainer(
                     duration: const Duration(milliseconds: 590),
                     decoration: BoxDecoration(
-                      color: splashWhite,
+                      color: splashTrans,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     height: logic.check2(index) ? 190 : 210,
