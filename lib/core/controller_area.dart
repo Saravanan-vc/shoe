@@ -2,8 +2,9 @@ import 'package:get/get.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/forgot_in/controller/forgot_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/controller/Login_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/sign_in/controller/Sign_Contoller.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/controller/productscreen.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/controller/bottom_navigator_controller.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/controller/productscreen.dart';
 
 class ControllerArea {
   injection() {
@@ -17,5 +18,8 @@ class ControllerArea {
 
     //product scereen controller
     Get.put(Productscreencontroller());
+
+    //bottom navigator controller
+    Get.put(Bottomnavigatorcontroller());
   }
 }

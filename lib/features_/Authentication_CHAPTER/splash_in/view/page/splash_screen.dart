@@ -9,7 +9,7 @@ import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/cir
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/circel_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/quote_H_widget.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/splash_in/view/widgets/shoe_widget.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/bottomNavigator.dart';
+import 'package:shoe/features_/BottomNavigator_CHAPTER/view/bottomNavigator.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

@@ -8,8 +8,8 @@ import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/animated_card.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/animated_card.dart';
 
 class CardSlider extends StatelessWidget {
   const CardSlider({super.key});

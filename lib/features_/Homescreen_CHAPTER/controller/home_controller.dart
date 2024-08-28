@@ -4,9 +4,9 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/api/apilink.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/model/cardfixed.dart/fixedmodel.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/model/cardfixed.dart/secondmodel.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/model/products_models.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/fixedmodel.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/secondmodel.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/model/products_models.dart';
 import 'package:http/http.dart' as http;
 
 class HomeController extends GetxController {
@@ -16,6 +16,7 @@ class HomeController extends GetxController {
   }
 
   List<ProductsModels> products = [];
+  List hello = [];
 
   @override
   void onInit() async {

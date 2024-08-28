@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/sizedbox_hight.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/controller/productscreen.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/controller/productscreen.dart';
 
 class Sizeofshoe extends StatelessWidget {
   const Sizeofshoe({super.key});

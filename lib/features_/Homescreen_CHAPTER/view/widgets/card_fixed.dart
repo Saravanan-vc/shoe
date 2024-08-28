@@ -7,9 +7,9 @@ import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/pages/productscreen.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/pages/productscreen.dart';
 
 // ignore: must_be_immutable
 class CardFixed extends StatelessWidget {
@@ -108,12 +108,47 @@ class CardFixed extends StatelessWidget {
                                     logic.caedFixed[logic.imagescree2].like =
                                         logic.favrouit(logic
                                             .caedFixed[logic.imagescree2].like);
+                                    if (logic
+                                        .caedFixed[logic.imagescree2].like) {
+                                      var hel =
+                                          logic.caedFixed[logic.imagescree2];
+                                      logic.hello.add(hel);
+                                      print(
+                                          'this is First length : ${logic.hello.length}');
+                                      print('this is i add first :${hel.id}');
+                                    } else {
+                                      for (int a = 0;
+                                          a < logic.hello.length;
+                                          a++) {
+                                        if (logic.hello[a].id ==
+                                            logic.caedFixed[logic.imagescree2]
+                                                .id) {
+                                          print(
+                                              'i removed this :${logic.hello[a].id}');
+                                          logic.hello.removeAt(a);
+                                        }
+                                      }
+
+                                      print(
+                                          'this is First remove length : ${logic.hello.length}');
+                                    }
                                   case 1:
                                     logic.secondfixed[logic.imagescree].like =
                                         logic.favrouit(logic
                                             .secondfixed[logic.imagescree]
                                             .like);
+                                    if (logic
+                                        .secondfixed[logic.imagescree].like) {
+                                      var hel =
+                                          logic.secondfixed[logic.imagescree];
+                                      logic.hello.add(hel);
+                                      print(
+                                          'this is Second length  : ${logic.hello.length}');
+                                    }
                                 }
+                                /* hey bro we want to 
+                                add this in favrouit 
+                                screen */
 
                                 logic.update();
                               },

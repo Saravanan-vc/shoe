@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/Authentication_blueprint/blue_auth.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/pages/home_screen.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/pages/home_screen.dart';
 
 class LoginController extends GetxController implements loging_sign {
   @override

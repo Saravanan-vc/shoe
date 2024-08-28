@@ -4,9 +4,9 @@ import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/blue_circle.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/view/widgets/animatedcard/shoe_drop.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/blue_circle.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/shoe_drop.dart';
 
 class AnimatedCard extends StatelessWidget {
   final VoidCallback ontap;

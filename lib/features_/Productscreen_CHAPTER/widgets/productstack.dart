@@ -8,10 +8,10 @@ import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/backbutton.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Homescreen_CHAPTER/controller/home_controller.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/widgets/appimage.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/widgets/price.dart';
-import 'package:shoe/features_/BottomNavigator_CHAPTER/Productscreen_CHAPTER/widgets/sizeofshoe.dart';
+import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/widgets/appimage.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/widgets/price.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/widgets/sizeofshoe.dart';
 
 class Productstack extends StatelessWidget {
   final int index;
@@ -63,9 +63,22 @@ class Productstack extends StatelessWidget {
                       case 0:
                         logic.caedFixed[logic.imagescree2].like = logic
                             .favrouit(logic.caedFixed[logic.imagescree2].like);
+                        if (logic.caedFixed[logic.imagescree2].like) {
+                          var hel = logic.caedFixed[logic.imagescree2];
+                          logic.hello.add(hel);
+                          print('this is First length : ${logic.hello.length}');
+                        }
+                        break;
                       case 1:
                         logic.secondfixed[logic.imagescree].like = logic
                             .favrouit(logic.secondfixed[logic.imagescree].like);
+                        if (logic.secondfixed[logic.imagescree].like) {
+                          var hel = logic.secondfixed[logic.imagescree];
+                          logic.hello.add(hel);
+                          print(
+                              'this is Second length  : ${logic.hello.length}');
+                        }
+                        break;
                     }
 
                     logic.update();
