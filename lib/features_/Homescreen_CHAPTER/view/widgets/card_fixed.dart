@@ -7,7 +7,6 @@ import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
-import 'package:shoe/features_/Favroutproduct_CHAPTER/favrouit_controller.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/name_card.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/pages/productscreen.dart';

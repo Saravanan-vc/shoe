@@ -3,7 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
-import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 
 class appBar extends StatelessWidget {
   const appBar({super.key});
