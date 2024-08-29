@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'package:get/get.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/api/apilink.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
+import 'package:shoe/features_/Favroutproduct_CHAPTER/favrouit_controller.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/fixedmodel.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/secondmodel.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/model/products_models.dart';
@@ -16,7 +17,6 @@ class HomeController extends GetxController {
   }
 
   List<ProductsModels> products = [];
-  List hello = [];
 
   @override
   void onInit() async {
@@ -171,4 +171,20 @@ class HomeController extends GetxController {
         }
     }
   }
+
+  //add favrouit system
+  void favrouitsystem(bool check, dynamic productdetails) {
+    if (check) {
+      var likedproduts = productdetails;
+      nameproductfa.add(likedproduts);
+    } else {
+      for (int a = 0; a < nameproductfa.length; a++) {
+        if (nameproductfa[a].name == productdetails.name) {
+          nameproductfa.removeAt(a);
+        }
+      }
+    }
+  }
+
+  
 }

@@ -18,7 +18,6 @@ class Productscreen extends StatelessWidget {
       backgroundColor: splashWhite,
       body: Productstack(
         index: index,
-      
         image: Image,
       ),
     );

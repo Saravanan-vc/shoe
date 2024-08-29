@@ -17,4 +17,13 @@ class PaddingSpacecustom {
       child: child,
     );
   }
+  
+  static Padding onlyL(double horz, Widget child) {
+    return Padding(
+      padding: EdgeInsets.only(
+        left: horz,
+      ),
+      child: child,
+    );
+  }
 }

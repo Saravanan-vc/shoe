@@ -63,21 +63,18 @@ class Productstack extends StatelessWidget {
                       case 0:
                         logic.caedFixed[logic.imagescree2].like = logic
                             .favrouit(logic.caedFixed[logic.imagescree2].like);
-                        if (logic.caedFixed[logic.imagescree2].like) {
-                          var hel = logic.caedFixed[logic.imagescree2];
-                          logic.hello.add(hel);
-                          print('this is First length : ${logic.hello.length}');
-                        }
+                        //this favrouitsystem function is key to add the product in favrouit screen
+                        logic.favrouitsystem(
+                            logic.caedFixed[logic.imagescree2].like,
+                            logic.caedFixed[logic.imagescree2]);
                         break;
                       case 1:
                         logic.secondfixed[logic.imagescree].like = logic
                             .favrouit(logic.secondfixed[logic.imagescree].like);
-                        if (logic.secondfixed[logic.imagescree].like) {
-                          var hel = logic.secondfixed[logic.imagescree];
-                          logic.hello.add(hel);
-                          print(
-                              'this is Second length  : ${logic.hello.length}');
-                        }
+                        //this favrouitsystem function is key to add the product in favrouit screen
+                        logic.favrouitsystem(
+                            logic.secondfixed[logic.imagescree].like,
+                            logic.secondfixed[logic.imagescree]);
                         break;
                     }
 
