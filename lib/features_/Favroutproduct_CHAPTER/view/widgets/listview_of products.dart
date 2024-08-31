@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconly/iconly.dart';
 
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
@@ -8,7 +9,7 @@ import 'package:shoe/core/animation_CHAPTER/animation_splash_ho.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:shoe/features_/Favroutproduct_CHAPTER/favrouit_controller.dart';
+import 'package:shoe/features_/Favroutproduct_CHAPTER/controller_favrou/favrouit_controller.dart';
 
 class ListviewOf extends StatelessWidget {
   const ListviewOf({super.key});
@@ -73,19 +74,24 @@ class ListviewOf extends StatelessWidget {
                     style: textstyle.normalhard(25, splashBlack, 0),
                   ),
                 ),
-                // PositionClass(right: 38.0, top: 18.0).global(
-                //   GestureDetector(
-                //     onTap: () {
-                //       logic.checklike(1);
-                //       logic.clearproduct(index);
-                //       logic.update();
-                //     },
-                //     child: const Icon(
-                //       IconlyBold.heart,
-                //       size: 30,
-                //     ),
-                //   ),
-                // ),
+                PositionClass(right: 38.0, top: 18.0).global(
+                  GestureDetector(
+                    onTap: () {
+                      logic.ulike(index);
+                      logic.clearproduct(index);
+                      logic.update();
+                    },
+                    child: nameproductfa[index].like
+                        ? const Icon(
+                            IconlyBold.heart,
+                            size: 30,
+                          )
+                        : const Icon(
+                            IconlyLight.heart,
+                            size: 30,
+                          ),
+                  ),
+                ),
               ],
             ),
           );

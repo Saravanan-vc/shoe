@@ -13,6 +13,7 @@ ProductsModels _$ProductsModelsFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toInt(),
       like: json['like'] as bool? ?? false,
+      cart: json['cart'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$ProductsModelsToJson(ProductsModels instance) =>
@@ -22,4 +23,5 @@ Map<String, dynamic> _$ProductsModelsToJson(ProductsModels instance) =>
       'price': instance.price,
       'name': instance.name,
       'like': instance.like,
+      'cart': instance.cart,
     };

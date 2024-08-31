@@ -11,12 +11,14 @@ class Secondmodel {
   @JsonKey(name: 'image')
   String? image;
   bool like;
+  bool cart;
   Secondmodel({
     required this.id,
     required this.image,
     required this.price,
     required this.name,
     this.like = false,
+    this.cart = false,
   });
 
   factory Secondmodel.fromjson(Map<String, dynamic> json) =>

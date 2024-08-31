@@ -12,6 +12,7 @@ Fixedmodel _$FixedmodelFromJson(Map<String, dynamic> json) => Fixedmodel(
       name: json['name'] as String?,
       price: (json['price'] as num?)?.toInt(),
       like: json['like'] as bool? ?? false,
+      cart: json['cart'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$FixedmodelToJson(Fixedmodel instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$FixedmodelToJson(Fixedmodel instance) =>
       'price': instance.price,
       'image': instance.image,
       'like': instance.like,
+      'cart': instance.cart,
     };

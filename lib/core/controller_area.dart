@@ -3,9 +3,11 @@ import 'package:shoe/features_/Authentication_CHAPTER/forgot_in/controller/forgo
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/controller/Login_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/sign_in/controller/Sign_Contoller.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/controller/bottom_navigator_controller.dart';
-import 'package:shoe/features_/Favroutproduct_CHAPTER/favrouit_controller.dart';
+import 'package:shoe/features_/Favroutproduct_CHAPTER/controller_favrou/favrouit_controller.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/controller/productscreen.dart';
+import 'package:shoe/features_/cart_chapter/cart_controller/cart_controller_buy.dart';
+import 'package:shoe/features_/common_controller/favrouit_controller.dart';
 
 class ControllerArea {
   injection() {
@@ -25,5 +27,11 @@ class ControllerArea {
 
     //favrouit screen
     Get.put(FavrouitController());
+
+    //likecontroller
+    Get.put(favrouitController());
+
+    //cart controller to buy
+    Get.put(CartControllerBuy());
   }
 }

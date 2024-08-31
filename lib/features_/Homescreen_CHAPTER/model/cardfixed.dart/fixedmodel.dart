@@ -12,6 +12,7 @@ class Fixedmodel {
   @JsonKey(name: 'image')
   String? image;
   bool like;
+  bool cart;
 
   Fixedmodel({
     required this.id,
@@ -19,6 +20,7 @@ class Fixedmodel {
     required this.name,
     required this.price,
     this.like = false,
+    this.cart = false,
   });
 
   factory Fixedmodel.fromjson(Map<String, dynamic> json) =>

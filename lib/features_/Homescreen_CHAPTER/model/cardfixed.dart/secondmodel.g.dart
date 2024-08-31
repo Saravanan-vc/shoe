@@ -12,6 +12,7 @@ Secondmodel _$SecondmodelFromJson(Map<String, dynamic> json) => Secondmodel(
       price: (json['price'] as num?)?.toInt(),
       name: json['name'] as String?,
       like: json['like'] as bool? ?? false,
+      cart: json['cart'] as bool? ?? false,
     );
 
 Map<String, dynamic> _$SecondmodelToJson(Secondmodel instance) =>
@@ -21,4 +22,5 @@ Map<String, dynamic> _$SecondmodelToJson(Secondmodel instance) =>
       'price': instance.price,
       'image': instance.image,
       'like': instance.like,
+      'cart': instance.cart,
     };

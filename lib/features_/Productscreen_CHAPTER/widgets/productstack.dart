@@ -6,12 +6,14 @@ import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/animation_CHAPTER/animation_splash.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/Like_favrouit.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/backbutton.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/button_customize/button_customize_widget.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/appimage.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/price.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/sizeofshoe.dart';
+import 'package:shoe/features_/cart_chapter/cart_controller/cart_controller_buy.dart';
 
 class Productstack extends StatelessWidget {
   final int index;
@@ -136,6 +138,42 @@ class Productstack extends StatelessWidget {
           ),
           //selection of size
           PositionClass(top: 130.0, left: 18.0).global(const Sizeofshoe()),
+          // add button
+          PositionClass(bottom: 190.0, right: 18.0).global(
+            GetBuilder<CartControllerBuy>(builder: (logic) {
+              return ButtonCustomizeWidget(
+                color: splashBlack,
+
+              //  TODO://ADD SOME FUNCTION TO BE DYANAMIC;
+                text: logic.caedFixed[logic.imagescree2].cart ? 'added' : 'add',
+                H: 30,
+                W: 50,
+                fs: 20,
+                textcolor: splashWhite,
+                r: 8,
+                onpress: () {
+                  switch (index) {
+                    case 0:
+                      logic.caedFixed[logic.imagescree2].like = logic
+                          .favrouit(logic.caedFixed[logic.imagescree2].like);
+                      //this favrouitsystem function is key to add the product in favrouit screen
+                      logic.addtocart(logic.caedFixed[logic.imagescree2]);
+                      logic.caedFixed[logic.imagescree2].cart =
+                          !logic.caedFixed[logic.imagescree2].cart;
+                      print(logic.caedFixed[logic.imagescree2].cart);
+
+                      break;
+                    case 1:
+                      logic.secondfixed[logic.imagescree].like = logic
+                          .favrouit(logic.secondfixed[logic.imagescree].like);
+                      //this favrouitsystem function is key to add the product in favrouit screen
+                      logic.addtocart(logic.secondfixed[logic.imagescree]);
+                      break;
+                  }
+                },
+              );
+            }),
+          ),
         ],
       ),
     );

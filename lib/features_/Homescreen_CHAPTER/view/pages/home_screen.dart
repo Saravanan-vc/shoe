@@ -14,8 +14,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: splashWhite,
-      appBar: Appbarcus.Nike(),
-    
+      appBar: Appbarcus.Nike(context),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

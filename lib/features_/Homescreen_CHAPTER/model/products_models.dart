@@ -15,7 +15,8 @@ class ProductsModels {
   @JsonKey(name: 'name')
   String? name;
 
-  bool like ;
+  bool like;
+  bool cart;
 
   ProductsModels({
     required this.id,
@@ -23,6 +24,7 @@ class ProductsModels {
     required this.name,
     required this.price,
     this.like = false,
+    this.cart = false,
   });
 
   factory ProductsModels.fromjson(Map<String, dynamic> json) =>
