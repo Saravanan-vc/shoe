@@ -1,10 +1,18 @@
+
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 
+List cartproduct = [];
 class CartControllerBuy extends HomeController {
-  List cartproduct = [];
-  void addtocart(dynamic productdetails) {
-    var product = productdetails;
-    cartproduct.add(product);
-    update();
+  
+
+  
+
+  //getting payment
+  int pricemethod() {
+    int a = 0;
+    for (int i = 0; i < cartproduct.length; i++) {
+      a = a + cartproduct[i].price as int;
+    }
+    return a;
   }
 }

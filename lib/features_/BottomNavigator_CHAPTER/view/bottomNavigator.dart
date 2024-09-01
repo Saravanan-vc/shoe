@@ -55,18 +55,14 @@ class _BottomnavigatorState extends State<Bottomnavigator> {
                     logic.indexchange(1);
                   },
                   child: logic.indexhome[1]
-                      ? Transform.rotate(
-                          angle: 24.7,
-                          child: Image.asset(
-                            'assets/logo/football.png',
-                            color: splashBlack,
-                            width: 48,
-                          ),
+                      ? Icon(
+                          IconlyBold.bag,
+                          size: 30.sp,
                         )
-                      : Image.asset(
-                          'assets/logo/football.png',
+                      : Icon(
+                          IconlyLight.bag,
+                          size: 30.sp,
                           color: splashBlack3,
-                          width: 48,
                         ),
                 ),
                 GestureDetector(

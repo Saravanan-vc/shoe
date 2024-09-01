@@ -12,7 +12,7 @@ class SnackBarwidget {
       backgroundColor: Colors.transparent,
       dismissDirection: DismissDirection.endToStart,
       behavior: SnackBarBehavior.floating,
-      margin: const EdgeInsets.only(left: 10, right: 10),
+      margin: const EdgeInsets.only(left: 2, right: 2),
       content: Container(
         height: 60.h,
         padding: const EdgeInsets.symmetric(horizontal: 5),

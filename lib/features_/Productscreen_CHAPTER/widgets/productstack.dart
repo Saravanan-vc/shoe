@@ -9,6 +9,7 @@ import 'package:shoe/core/uni_widget_CHAPTER/backbutton.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/button_customize/button_customize_widget.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/position_class.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
+import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/appimage.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/price.dart';
@@ -88,7 +89,7 @@ class Productstack extends StatelessWidget {
             ),
           ),
           //produc price
-          PositionClass(bottom: 190.0, left: 18.0).global(
+          PositionClass(bottom: 150.0, left: 18.0).global(
             GetBuilder<HomeController>(
               builder: (logic) {
                 return Price(
@@ -139,40 +140,47 @@ class Productstack extends StatelessWidget {
           //selection of size
           PositionClass(top: 130.0, left: 18.0).global(const Sizeofshoe()),
           // add button
-          PositionClass(bottom: 190.0, right: 18.0).global(
-            GetBuilder<CartControllerBuy>(builder: (logic) {
-              return ButtonCustomizeWidget(
-                color: splashBlack,
+          PositionClass(bottom: 150.0, right: 18.0).global(
+            GetBuilder<HomeController>(
+              builder: (logic) {
+                return ButtonCustomizeWidget(
+                  color: splashBlack,
 
-              //  TODO://ADD SOME FUNCTION TO BE DYANAMIC;
-                text: logic.caedFixed[logic.imagescree2].cart ? 'added' : 'add',
-                H: 30,
-                W: 50,
-                fs: 20,
-                textcolor: splashWhite,
-                r: 8,
-                onpress: () {
-                  switch (index) {
-                    case 0:
-                      logic.caedFixed[logic.imagescree2].like = logic
-                          .favrouit(logic.caedFixed[logic.imagescree2].like);
-                      //this favrouitsystem function is key to add the product in favrouit screen
-                      logic.addtocart(logic.caedFixed[logic.imagescree2]);
-                      logic.caedFixed[logic.imagescree2].cart =
-                          !logic.caedFixed[logic.imagescree2].cart;
-                      print(logic.caedFixed[logic.imagescree2].cart);
+                  //  TODO://ADD SOME FUNCTION TO BE DYANAMIC;
+                  text: 'ADD',
+                  H: 30,
+                  W: 90,
+                  fs: 20,
+                  textcolor: splashWhite,
 
-                      break;
-                    case 1:
-                      logic.secondfixed[logic.imagescree].like = logic
-                          .favrouit(logic.secondfixed[logic.imagescree].like);
-                      //this favrouitsystem function is key to add the product in favrouit screen
-                      logic.addtocart(logic.secondfixed[logic.imagescree]);
-                      break;
-                  }
-                },
-              );
-            }),
+                  r: 8,
+                  onpress: () {
+                    switch (index) {
+                      case 0:
+                        logic.caedFixed[logic.imagescree2].cart = logic
+                            .favrouit(logic.caedFixed[logic.imagescree2].cart);
+                        //this favrouitsystem function is key to add the product
+                        // in favrouit screen
+
+                        print(logic.caedFixed[logic.imagescree2].cart);
+                        logic.addornot(logic.caedFixed[logic.imagescree2].cart,
+                            logic.caedFixed[logic.imagescree2], context);
+                        break;
+                      case 1:
+                        logic.secondfixed[logic.imagescree].cart = logic
+                            .favrouit(logic.secondfixed[logic.imagescree].cart);
+                        //this favrouitsystem function is key to add the product
+                        // in favrouit screen
+                        print(logic.secondfixed[logic.imagescree].cart);
+                        logic.addornot(logic.secondfixed[logic.imagescree].cart,
+                            logic.secondfixed[logic.imagescree], context);
+                        break;
+                    }
+                    logic.update();
+                  },
+                );
+              },
+            ),
           ),
         ],
       ),

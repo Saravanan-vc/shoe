@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/api/apilink.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
@@ -8,8 +9,17 @@ import 'package:shoe/features_/Favroutproduct_CHAPTER/controller_favrou/favrouit
 import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/fixedmodel.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/model/cardfixed.dart/secondmodel.dart';
 import 'package:http/http.dart' as http;
+import 'package:shoe/features_/cart_chapter/cart_controller/cart_controller_buy.dart';
 
 class favrouitController extends GetxController {
+  @override
+  void onInit() async {
+    // TODO: implement onInit
+    super.onInit();
+    await fetchcardapi();
+    await fetchapisecond();
+  }
+
   // fixed card below this
   List<Fixedmodel> caedFixed = [];
 
@@ -134,6 +144,17 @@ class favrouitController extends GetxController {
     }
   }
 
+  checkcart(int i) {
+    switch (i) {
+      case 0:
+        return caedFixed[imagescree2].cart ? 'added' : 'add';
+      case 1:
+        {
+          return secondfixed[imagescree].cart ? 'added' : 'add';
+        }
+    }
+  }
+
   checkprice(int i) {
     switch (i) {
       case 0:
@@ -157,5 +178,35 @@ class favrouitController extends GetxController {
         }
       }
     }
+  }
+
+  //this for cartfunction
+  // adding procdeures
+  void addtocart(dynamic productdetails, context) {
+    var product;
+    product = productdetails;
+    cartproduct.add(product);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBarwidget.correctnotificatioin(context, 'Add to cart'));
+    update();
+  }
+
+  //removing procdeures
+  void removetheproduct(dynamic productdetails, context) {
+    for (int a = 0; a < cartproduct.length; a++) {
+      cartproduct[a].name == productdetails.name;
+      print(productdetails.name);
+      cartproduct.removeAt(a);
+    }
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBarwidget.errortnotificatioin(context, 'Remove From cart'));
+    update();
+  }
+
+  //taking decession
+  void addornot(bool yes, productdetails, context) {
+    yes
+        ? addtocart(productdetails, context)
+        : removetheproduct(productdetails, context);
   }
 }
