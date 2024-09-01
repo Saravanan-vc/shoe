@@ -12,14 +12,6 @@ import 'package:http/http.dart' as http;
 import 'package:shoe/features_/cart_chapter/cart_controller/cart_controller_buy.dart';
 
 class favrouitController extends GetxController {
-  @override
-  void onInit() async {
-    // TODO: implement onInit
-    super.onInit();
-    await fetchcardapi();
-    await fetchapisecond();
-  }
-
   // fixed card below this
   List<Fixedmodel> caedFixed = [];
 
@@ -194,9 +186,9 @@ class favrouitController extends GetxController {
   //removing procdeures
   void removetheproduct(dynamic productdetails, context) {
     for (int a = 0; a < cartproduct.length; a++) {
-      cartproduct[a].name == productdetails.name;
-      print(productdetails.name);
-      cartproduct.removeAt(a);
+      cartproduct[a].name == productdetails.name
+          ? cartproduct.removeAt(a)
+          : null;
     }
     ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.errortnotificatioin(context, 'Remove From cart'));

@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:iconly/iconly.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
+import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
 import 'package:shoe/features_/cart_chapter/view/pages/cart_screen.dart';
 
 class Appbarcus {
@@ -15,18 +17,21 @@ class Appbarcus {
         PaddingSpacecustom.only(
           8.sp,
           GestureDetector(
-            onTap: () {
+            onTap: () async {
+              SharedPreferences sharedPreferences =
+                  await SharedPreferences.getInstance();
+              sharedPreferences.setBool('login', false);
               Navigator.push(
                 context,
                 CupertinoPageRoute(
                   builder: (context) {
-                    return const cartScreen();
+                    return const LogScreen();
                   },
                 ),
               );
             },
             child: Icon(
-              IconlyLight.bag,
+              IconlyBroken.logout,
               size: 28.sp,
             ),
           ),

@@ -83,7 +83,6 @@ class CardFixed extends StatelessWidget {
                                   builder: (context) {
                                     return Productscreen(
                                       index: index,
-                                      Image: logic.checkimage(index),
                                     );
                                   },
                                 ),

@@ -14,10 +14,10 @@ class cartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetBuilder<CartControllerBuy>(builder: (context) {
+    return GetBuilder<CartControllerBuy>(builder: (logic) {
       return Scaffold(
         backgroundColor: splashWhite,
-        appBar: Appbarfavcus.Nike(context),
+        appBar: Appbarfavcus.Nikeca(context),
         body: cartproduct.isEmpty
             ? Center(
                 child: Icon(

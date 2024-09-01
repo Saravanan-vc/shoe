@@ -1,6 +1,7 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -10,6 +11,7 @@ import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/animatedcard/animated_card.dart';
+import 'package:shoe/features_/Productscreen_CHAPTER/pages/productscreen2.dart';
 
 class CardSlider extends StatelessWidget {
   const CardSlider({super.key});
@@ -55,25 +57,35 @@ class CardSlider extends StatelessWidget {
                   return CarouselSlider.builder(
                     itemCount: logic.products.length,
                     itemBuilder: (context, ind, index) {
-                      return AnimatedCard(
-                        favrouit: logic.products[ind].like,
-                        ontap: () {
-                          logic.products[ind].like =
-                              logic.favrouit(logic.products[ind].like);
-                          logic.update();
-                        },
-                        name: logic.products[ind].name!.toUpperCase(),
-                        widgetshoe: SizedBox(
-                          height: 120,
-                          width: ScreenHW().hight(context) - 18,
-                          child: Transform.rotate(
-                            angle: 24.5,
-                            child: CachedNetworkImage(
-                                imageUrl: '${logic.products[ind].image}'),
+                      return Expanded(
+                        child: AnimatedCard(
+                          favrouit: logic.products[ind].like,
+                          ontap: () {
+                            logic.products[ind].like =
+                                logic.favrouit(logic.products[ind].like);
+                            logic.update();
+                          },
+                          name: logic.products[ind].name!.toUpperCase(),
+                          widgetshoe: SizedBox(
+                            height: 120,
+                            width: ScreenHW().hight(context) - 18,
+                            child: Transform.rotate(
+                              angle: 24.5,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.push(context,
+                                      CupertinoPageRoute(builder: (context) {
+                                    return Productscreen2(index: ind);
+                                  }));
+                                },
+                                child: CachedNetworkImage(
+                                    imageUrl: '${logic.products[ind].image}'),
+                              ),
+                            ),
                           ),
+                          fcolor: splashBlack,
+                          scolor: splashBlack3,
                         ),
-                        fcolor: splashBlack,
-                        scolor: splashBlack3,
                       );
                     },
                     options: CarouselOptions(

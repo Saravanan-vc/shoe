@@ -14,13 +14,11 @@ import 'package:shoe/features_/Productscreen_CHAPTER/widgets/appimage.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/price.dart';
 import 'package:shoe/features_/Productscreen_CHAPTER/widgets/sizeofshoe.dart';
 
-class Productstack extends StatelessWidget {
+class ProductStack2 extends StatelessWidget {
   final int index;
 
- 
-  const Productstack({
+  const ProductStack2({
     super.key,
-   
     required this.index,
   });
 
@@ -55,34 +53,16 @@ class Productstack extends StatelessWidget {
 
           //product like
           PositionClass(right: 20.0, top: 5.0).global(
-            
             GetBuilder<HomeController>(
               builder: (logic) {
                 return LikeFavrouit(
                   size: 30,
                   ontap: () {
-                    switch (index) {
-                      case 0:
-                        logic.caedFixed[logic.imagescree2].like = logic
-                            .favrouit(logic.caedFixed[logic.imagescree2].like);
-                        //this favrouitsystem function is key to add the product in favrouit screen
-                        logic.favrouitsystem(
-                            logic.caedFixed[logic.imagescree2].like,
-                            logic.caedFixed[logic.imagescree2]);
-                        break;
-                      case 1:
-                        logic.secondfixed[logic.imagescree].like = logic
-                            .favrouit(logic.secondfixed[logic.imagescree].like);
-                        //this favrouitsystem function is key to add the product in favrouit screen
-                        logic.favrouitsystem(
-                            logic.secondfixed[logic.imagescree].like,
-                            logic.secondfixed[logic.imagescree]);
-                        break;
-                    }
-
+                    logic.products[index].like =
+                        logic.favrouit(logic.products[index].like);
                     logic.update();
                   },
-                  inital: logic.checklike(index),
+                  inital: logic.products[index].like,
                 );
               },
             ),
@@ -92,7 +72,7 @@ class Productstack extends StatelessWidget {
             GetBuilder<HomeController>(
               builder: (logic) {
                 return Price(
-                  price: logic.checkprice(index),
+                  price: '${logic.products[index].price}',
                 );
               },
             ),
@@ -108,7 +88,7 @@ class Productstack extends StatelessWidget {
                   child: GetBuilder<HomeController>(
                     builder: (logic) {
                       return Text(
-                        logic.checkname(index),
+                        '${logic.products[index].name}',
                         style: textstyle.normalhard(40, splashBlack, 0),
                       );
                     },
@@ -119,17 +99,18 @@ class Productstack extends StatelessWidget {
           ),
           //product image
           SlashShoe(
+            endpoint: 110,
             startpoint: -220,
-            rightmove: 10,
+            rightmove: 40,
             widget: SizedBox(
-              height: 420,
-              width: 420,
+              height: 400,
+              width: 400,
               child: Transform.rotate(
                 angle: 24.5,
                 child: GetBuilder<HomeController>(
                   builder: (logic) {
                     return CachedNetworkImage(
-                      imageUrl: logic.checkimage(index),
+                      imageUrl: '${logic.products[index].image}',
                     );
                   },
                 ),
@@ -144,35 +125,14 @@ class Productstack extends StatelessWidget {
               builder: (logic) {
                 return ButtonCustomizeWidget(
                   color: splashBlack,
-                  text: logic.checkcart(index),
+                  text: "add",
                   H: 30,
                   W: 90,
                   fs: 20,
                   textcolor: splashWhite,
                   r: 8,
                   onpress: () {
-                    switch (index) {
-                      case 0:
-                        logic.caedFixed[logic.imagescree2].cart = logic
-                            .favrouit(logic.caedFixed[logic.imagescree2].cart);
-                        //this favrouitsystem function is key to add the product
-                        // in favrouit screen
-
-                        print(logic.caedFixed[logic.imagescree2].cart);
-                        logic.addornot(logic.caedFixed[logic.imagescree2].cart,
-                            logic.caedFixed[logic.imagescree2], context);
-                        break;
-                      case 1:
-                        logic.secondfixed[logic.imagescree].cart = logic
-                            .favrouit(logic.secondfixed[logic.imagescree].cart);
-                        //this favrouitsystem function is key to add the product
-                        // in favrouit screen
-                        print(logic.secondfixed[logic.imagescree].cart);
-                        logic.addornot(logic.secondfixed[logic.imagescree].cart,
-                            logic.secondfixed[logic.imagescree], context);
-                        break;
-                    }
-                    logic.update();
+                    logic.addtocart(logic.products[index], context);
                   },
                 );
               },
