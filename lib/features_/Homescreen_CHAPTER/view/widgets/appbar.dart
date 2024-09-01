@@ -6,7 +6,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
-import 'package:shoe/features_/cart_chapter/view/pages/cart_screen.dart';
 
 class Appbarcus {
   static AppBar Nike(context) {
