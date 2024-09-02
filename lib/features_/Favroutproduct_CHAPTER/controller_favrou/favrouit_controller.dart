@@ -1,8 +1,8 @@
-import 'package:get/get.dart';
+import 'package:shoe/features_/common_controller/favrouit_controller.dart';
 
 List<dynamic> nameproductfa = [];
 
-class FavrouitController extends GetxController {
+class FavrouitController extends favrouitController {
   void clearproduct(int index) {
     nameproductfa.removeAt(index);
   }

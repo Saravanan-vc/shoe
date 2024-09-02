@@ -111,6 +111,10 @@ class CardFixed extends StatelessWidget {
                                     logic.favrouitsystem(
                                         logic.caedFixed[logic.imagescree2].like,
                                         logic.caedFixed[logic.imagescree2]);
+                                    logic.popmesageadd(
+                                        context,
+                                        logic
+                                            .caedFixed[logic.imagescree2].like);
                                   case 1:
                                     logic.secondfixed[logic.imagescree].like =
                                         logic.favrouit(logic
@@ -121,6 +125,10 @@ class CardFixed extends StatelessWidget {
                                         logic
                                             .secondfixed[logic.imagescree].like,
                                         logic.secondfixed[logic.imagescree]);
+                                    logic.popmesageadd(
+                                        context,
+                                        logic.secondfixed[logic.imagescree]
+                                            .like);
                                 }
 
                                 logic.update();

@@ -6,12 +6,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_screen.dart';
+import 'package:shoe/features_/order_histroy/view/order_histroy_track.dart';
 
 class Appbarcus {
   static AppBar Nike(context) {
     return AppBar(
       backgroundColor: splashWhite,
-      leading: const Icon(IconlyLight.category),
+      leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+              return const OrderHistroyTrack();
+            }));
+          },
+          child: const Icon(IconlyLight.buy)),
       actions: [
         PaddingSpacecustom.only(
           8.sp,

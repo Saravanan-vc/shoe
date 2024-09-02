@@ -201,4 +201,12 @@ class favrouitController extends GetxController {
         ? addtocart(productdetails, context)
         : removetheproduct(productdetails, context);
   }
+
+  void popmesageadd(context, bool check) {
+    check
+        ? ScaffoldMessenger.of(context).showSnackBar(
+            SnackBarwidget.correctnotificatioin(context, 'Add to Favroite'))
+        : ScaffoldMessenger.of(context).showSnackBar(
+            SnackBarwidget.errortnotificatioin(context, 'Remove to Favroite'));
+  }
 }

@@ -1,12 +1,9 @@
-
+import 'package:flutter/cupertino.dart';
 import 'package:shoe/features_/Homescreen_CHAPTER/controller/home_controller.dart';
 
 List cartproduct = [];
+
 class CartControllerBuy extends HomeController {
-  
-
-  
-
   //getting payment
   int pricemethod() {
     int a = 0;
@@ -15,4 +12,10 @@ class CartControllerBuy extends HomeController {
     }
     return a;
   }
+
+  //creating texteditcontroller
+  TextEditingController Recivername = TextEditingController();
+  TextEditingController Reciverphone = TextEditingController();
+  TextEditingController Reciveremail = TextEditingController();
+  final key = GlobalKey<FormState>();
 }

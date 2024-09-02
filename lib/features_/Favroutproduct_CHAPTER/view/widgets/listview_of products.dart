@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
 
@@ -57,9 +58,15 @@ class ListviewOf extends StatelessWidget {
                 ),
                 //product text
                 PositionClass(left: 180.0, top: 60.0).global(
-                  Text(
-                    nameproductfa[index].name,
-                    style: textstyle.normalhard(25, splashBlack, 0),
+                  GestureDetector(
+                    onLongPress: () {
+                      debugPrint('add');
+                      logic.addtocart(nameproductfa[index], context);
+                    },
+                    child: Text(
+                      nameproductfa[index].name,
+                      style: textstyle.normalhard(25, splashBlack, 0),
+                    ),
                   ),
                 ),
                 PositionClass(left: 180.0, top: 85.0).global(
