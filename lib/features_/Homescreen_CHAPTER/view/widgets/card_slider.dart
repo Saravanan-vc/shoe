@@ -57,8 +57,7 @@ class CardSlider extends StatelessWidget {
                   return CarouselSlider.builder(
                     itemCount: logic.products.length,
                     itemBuilder: (context, ind, index) {
-                      return Expanded(
-                        child: AnimatedCard(
+                      return AnimatedCard(
                           favrouit: logic.products[ind].like,
                           ontap: () {
                             logic.products[ind].like =
@@ -85,9 +84,8 @@ class CardSlider extends StatelessWidget {
                           ),
                           fcolor: splashBlack,
                           scolor: splashBlack3,
-                        ),
-                      );
-                    },
+                        );
+                      },
                     options: CarouselOptions(
                         autoPlayAnimationDuration: const Duration(seconds: 2),
                         scrollPhysics: const AlwaysScrollableScrollPhysics(),

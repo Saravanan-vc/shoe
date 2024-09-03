@@ -18,4 +18,9 @@ class CartControllerBuy extends HomeController {
   TextEditingController Reciverphone = TextEditingController();
   TextEditingController Reciveremail = TextEditingController();
   final key = GlobalKey<FormState>();
+
+  bool trackerpage = false;
+  void trackerpageon() {
+    trackerpage = true;
+  }
 }

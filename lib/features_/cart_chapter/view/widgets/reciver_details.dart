@@ -174,6 +174,7 @@ class _ReciverDetailsState extends State<ReciverDetails> {
                       ScaffoldMessenger.of(context).showSnackBar(
                           SnackBarwidget.correctnotificatioin(context,
                               "check order histroy to tarke you order"));
+                      logic.trackerpageon();
                     }
                   },
                   child: Container(
