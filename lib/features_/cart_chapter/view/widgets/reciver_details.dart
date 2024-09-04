@@ -85,7 +85,7 @@ class _ReciverDetailsState extends State<ReciverDetails> {
                       if (value!.isEmpty) {
                         return 'Give Reciver Phone for delivery safty';
                       }
-                      if (value!.length < 9) {
+                      if (value.length < 9) {
                         return 'Give proper Reciver Phone for delivery safty';
                       }
                       return null;

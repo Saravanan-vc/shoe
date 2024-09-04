@@ -7,14 +7,21 @@ import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/card_slider.dart'
 import 'package:shoe/features_/Homescreen_CHAPTER/view/widgets/header_row.dart';
 // import 'package:shoe/features_/Homescreen_CHAPTER/widgets/products_chip.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: splashWhite,
-      appBar: Appbarcus.Nike(context),
+      appBar: Appbarcus.Nike(
+        context,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(

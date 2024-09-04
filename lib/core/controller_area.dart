@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:shoe/core/internet_checker/internet.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/forgot_in/controller/forgot_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/logi_in/controller/Login_controller.dart';
 import 'package:shoe/features_/Authentication_CHAPTER/sign_in/controller/Sign_Contoller.dart';
@@ -33,5 +34,8 @@ class ControllerArea {
 
     //cart controller to buy
     Get.put(CartControllerBuy());
+
+    //internertsd checker
+    Get.put(Internet(), permanent: true);
   }
 }

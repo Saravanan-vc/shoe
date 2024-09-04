@@ -6,6 +6,7 @@ import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/screen_H_W.dart';
 import 'package:shoe/features_/BottomNavigator_CHAPTER/controller/bottom_navigator_controller.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class Bottomnavigator extends StatefulWidget {
   const Bottomnavigator({super.key});
@@ -15,6 +16,14 @@ class Bottomnavigator extends StatefulWidget {
 }
 
 class _BottomnavigatorState extends State<Bottomnavigator> {
+  final GlobalKey key = GlobalKey();
+  @override
+  void initState() {
+    WidgetsBinding.instance
+        .addPostFrameCallback((_) => ShowCaseWidget.of(context).startShowCase([key]));
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GetBuilder<Bottomnavigatorcontroller>(builder: (logic) {

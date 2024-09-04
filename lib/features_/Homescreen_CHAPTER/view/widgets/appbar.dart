@@ -9,16 +9,17 @@ import 'package:shoe/features_/Authentication_CHAPTER/logi_in/view/pages/log_scr
 import 'package:shoe/features_/order_histroy/view/order_histroy_track.dart';
 
 class Appbarcus {
-  static AppBar Nike(context) {
+  static AppBar Nike(context,) {
     return AppBar(
       backgroundColor: splashWhite,
       leading: GestureDetector(
-          onTap: () {
-            Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
-              return const OrderHistroyTrack();
-            }));
-          },
-          child: const Icon(IconlyLight.buy)),
+            onTap: () {
+              Navigator.of(context).push(CupertinoPageRoute(builder: (context) {
+                return const OrderHistroyTrack();
+              }));
+            },
+            child: const Icon(IconlyLight.buy)),
+      
       actions: [
         PaddingSpacecustom.only(
           8.sp,

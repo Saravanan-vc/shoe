@@ -58,34 +58,38 @@ class CardSlider extends StatelessWidget {
                     itemCount: logic.products.length,
                     itemBuilder: (context, ind, index) {
                       return AnimatedCard(
-                          favrouit: logic.products[ind].like,
-                          ontap: () {
-                            logic.products[ind].like =
-                                logic.favrouit(logic.products[ind].like);
-                            logic.update();
-                          },
-                          name: logic.products[ind].name!.toUpperCase(),
-                          widgetshoe: SizedBox(
-                            height: 120,
-                            width: ScreenHW().hight(context) - 18,
-                            child: Transform.rotate(
-                              angle: 24.5,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.push(context,
-                                      CupertinoPageRoute(builder: (context) {
-                                    return Productscreen2(index: ind);
-                                  }));
-                                },
-                                child: CachedNetworkImage(
-                                    imageUrl: '${logic.products[ind].image}'),
-                              ),
+                        favrouit: logic.products[ind].like,
+                        ontap: () {
+                          logic.products[ind].like =
+                              logic.favrouit(logic.products[ind].like);
+                          logic.update();
+                        },
+                        name: logic.products[ind].name!.toUpperCase(),
+                        widgetshoe: SizedBox(
+                          height: 120,
+                          width: ScreenHW().hight(context) - 18,
+                          child: Transform.rotate(
+                            angle: 24.5,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.push(context,
+                                    CupertinoPageRoute(builder: (context) {
+                                  return Productscreen2(index: ind);
+                                }));
+                              },
+                              child: CachedNetworkImage(
+                                  progressIndicatorBuilder:
+                                      (context, url, progress) {
+                                    return Container();
+                                  },
+                                  imageUrl: '${logic.products[ind].image}'),
                             ),
                           ),
-                          fcolor: splashBlack,
-                          scolor: splashBlack3,
-                        );
-                      },
+                        ),
+                        fcolor: splashBlack,
+                        scolor: splashBlack3,
+                      );
+                    },
                     options: CarouselOptions(
                         autoPlayAnimationDuration: const Duration(seconds: 2),
                         scrollPhysics: const AlwaysScrollableScrollPhysics(),
