@@ -20,12 +20,19 @@ class FavrouitScreen extends StatelessWidget {
       body: GetBuilder<FavrouitController>(
         builder: (logic) {
           return nameproductfa.isEmpty
-              ? Center(
-                  child: Icon(
-                  IconlyBroken.heart,
-                  size: 100.sp,
-                  color: splashBlack2,
-                ))
+              ? Get.isSnackbarOpen
+                  ? Center(
+                      child: Icon(
+                      CupertinoIcons.wifi_slash,
+                      size: 100.sp,
+                      color: splashBlack2,
+                    ))
+                  : Center(
+                      child: Icon(
+                      IconlyBroken.heart,
+                      size: 100.sp,
+                      color: splashBlack2,
+                    ))
               : const Column(
                   children: [
                     appBar(),

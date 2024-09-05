@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -19,12 +20,19 @@ class cartScreen extends StatelessWidget {
         backgroundColor: splashWhite,
         appBar: Appbarfavcus.Nikeca(context),
         body: cartproduct.isEmpty
-            ? Center(
-                child: Icon(
-                IconlyLight.bag_2,
-                size: 80.h,
-                color: splashBlack2,
-              ))
+            ? Get.isSnackbarOpen
+                ? Center(
+                    child: Icon(
+                    CupertinoIcons.wifi_slash,
+                    size: 100.sp,
+                    color: splashBlack2,
+                  ))
+                : Center(
+                    child: Icon(
+                    IconlyLight.bag_2,
+                    size: 80.h,
+                    color: splashBlack2,
+                  ))
             : const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

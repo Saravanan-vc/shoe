@@ -12,6 +12,9 @@ import 'package:shoe/features_/common_controller/favrouit_controller.dart';
 
 class ControllerArea {
   injection() {
+     //internertsd checker
+    Get.put(Internet(), permanent: true);
+    
     //authentication controller
     Get.put(LoginController());
     Get.put(SignContoller());
@@ -35,7 +38,6 @@ class ControllerArea {
     //cart controller to buy
     Get.put(CartControllerBuy());
 
-    //internertsd checker
-    Get.put(Internet(), permanent: true);
+   
   }
 }

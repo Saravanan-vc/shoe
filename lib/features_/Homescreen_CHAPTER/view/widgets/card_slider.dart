@@ -29,76 +29,111 @@ class CardSlider extends StatelessWidget {
               height: 250.h,
               width: 100.w,
               child: Center(
-                child: RotatedBox(
-                  quarterTurns: 7,
-                  child: AnimatedTextKit(
-                    repeatForever: true,
-                    animatedTexts: [
-                      RotateAnimatedText(
-                        'HIGH ON TERNDRS',
-                        textStyle: textstyle.movingtext(60, splashBlack3),
-                      ),
-                      RotateAnimatedText(
-                        'MASTER PIECE',
-                        textStyle: textstyle.movingtext(60, splashBlack3),
-                      ),
-                      RotateAnimatedText(
-                        'CUsTOMISE',
-                        textStyle: textstyle.movingtext(70, splashBlack3),
-                      ),
-                    ],
-                  ),
-                ),
+                child: GetBuilder<HomeController>(builder: (logic) {
+                  return RotatedBox(
+                    quarterTurns: 7,
+                    child: logic.products.isEmpty
+                        ? Text(
+                            'Internet Error',
+                            style: textstyle.movingtext(60, splashBlack3),
+                          )
+                        : AnimatedTextKit(
+                            repeatForever: true,
+                            animatedTexts: [
+                              RotateAnimatedText(
+                                'HIGH ON TERNDRS',
+                                textStyle:
+                                    textstyle.movingtext(60, splashBlack3),
+                              ),
+                              RotateAnimatedText(
+                                'MASTER PIECE',
+                                textStyle:
+                                    textstyle.movingtext(60, splashBlack3),
+                              ),
+                              RotateAnimatedText(
+                                'CUsTOMISE',
+                                textStyle:
+                                    textstyle.movingtext(70, splashBlack3),
+                              ),
+                            ],
+                          ),
+                  );
+                }),
               ),
             ),
             Expanded(
               child: GetBuilder<HomeController>(
                 builder: (logic) {
-                  return CarouselSlider.builder(
-                    itemCount: logic.products.length,
-                    itemBuilder: (context, ind, index) {
-                      return AnimatedCard(
-                        favrouit: logic.products[ind].like,
-                        ontap: () {
-                          logic.products[ind].like =
-                              logic.favrouit(logic.products[ind].like);
-                          logic.update();
-                        },
-                        name: logic.products[ind].name!.toUpperCase(),
-                        widgetshoe: SizedBox(
-                          height: 120,
-                          width: ScreenHW().hight(context) - 18,
-                          child: Transform.rotate(
-                            angle: 24.5,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.push(context,
-                                    CupertinoPageRoute(builder: (context) {
-                                  return Productscreen2(index: ind);
-                                }));
-                              },
-                              child: CachedNetworkImage(
-                                  progressIndicatorBuilder:
-                                      (context, url, progress) {
-                                    return Container();
-                                  },
-                                  imageUrl: '${logic.products[ind].image}'),
+                  return logic.products.isEmpty
+                      ? Material(
+                          elevation: 5,
+                          shadowColor: splashBlack3,
+                          color: splashWhite,
+                          borderRadius: BorderRadius.circular(8),
+                          child: Container(
+                            height: 255.h,
+                            width: 180.w,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Center(
+                              child: Icon(
+                                CupertinoIcons.wifi_slash,
+                                size: 90,
+                                color: splashBlack2,
+                              ),
                             ),
                           ),
-                        ),
-                        fcolor: splashBlack,
-                        scolor: splashBlack3,
-                      );
-                    },
-                    options: CarouselOptions(
-                        autoPlayAnimationDuration: const Duration(seconds: 2),
-                        scrollPhysics: const AlwaysScrollableScrollPhysics(),
-                        viewportFraction: 1,
-                        height: 2248.h,
-                        autoPlay: true,
-                        enlargeCenterPage: true,
-                        disableCenter: true),
-                  );
+                        )
+                      : CarouselSlider.builder(
+                          itemCount: logic.products.length,
+                          itemBuilder: (context, ind, index) {
+                            return AnimatedCard(
+                              favrouit: logic.products[ind].like,
+                              ontap: () {
+                                logic.products[ind].like =
+                                    logic.favrouit(logic.products[ind].like);
+                                logic.update();
+                              },
+                              name: logic.products[ind].name!.toUpperCase(),
+                              widgetshoe: SizedBox(
+                                height: 120,
+                                width: ScreenHW().hight(context) - 18,
+                                child: Transform.rotate(
+                                  angle: 24.5,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      Navigator.push(context,
+                                          CupertinoPageRoute(
+                                              builder: (context) {
+                                        return Productscreen2(index: ind);
+                                      }));
+                                    },
+                                    child: CachedNetworkImage(
+                                        progressIndicatorBuilder:
+                                            (context, url, progress) {
+                                          return Container();
+                                        },
+                                        imageUrl:
+                                            '${logic.products[ind].image}'),
+                                  ),
+                                ),
+                              ),
+                              fcolor: splashBlack,
+                              scolor: splashBlack3,
+                            );
+                          },
+                          options: CarouselOptions(
+                              autoPlayAnimationDuration:
+                                  const Duration(seconds: 2),
+                              scrollPhysics:
+                                  const AlwaysScrollableScrollPhysics(),
+                              viewportFraction: 1,
+                              height: 2248.h,
+                              autoPlay: true,
+                              enlargeCenterPage: true,
+                              disableCenter: true),
+                        );
                 },
               ),
             ),
