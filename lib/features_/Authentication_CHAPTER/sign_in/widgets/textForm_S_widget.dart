@@ -203,10 +203,11 @@ class TextformSWidget extends StatelessWidget {
                     scolor: splashCyan,
                     onpress: () {
                       if (_Key.currentState!.validate()) {
-                        logic.Fireauth(
+                        logic.Autheintication(
                           logic.emailControl.text,
                           logic.passwordControl.text,
                           context,
+                          logic.namecontrol.text
                         );
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(

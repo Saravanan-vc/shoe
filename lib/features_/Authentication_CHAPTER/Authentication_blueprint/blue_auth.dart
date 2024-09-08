@@ -14,5 +14,5 @@ abstract class loging_sign {
   bool password = true;
   //visible generate
   void loop();
-  void Fireauth(String? email, String? password ,context);
+  void Fireauth(String? email, String? password ,context,);
 }

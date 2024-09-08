@@ -29,7 +29,7 @@ class ForgotController extends GetxController implements loging_sign {
   void loop() {}
 
   @override
-  void Fireauth(String? email, String? password, context) async {
+  void Fireauth(String? email, String? password, context,) async {
     try {
       await firebaseAuth.sendPasswordResetEmail(email: email!);
       ScaffoldMessenger.of(context).showSnackBar(

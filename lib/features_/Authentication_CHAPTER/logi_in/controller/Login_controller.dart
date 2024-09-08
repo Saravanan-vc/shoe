@@ -57,4 +57,5 @@ class LoginController extends GetxController implements loging_sign {
       );
     }
   }
+  
 }
