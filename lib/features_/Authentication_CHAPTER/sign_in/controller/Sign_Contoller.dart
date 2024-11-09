@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +16,8 @@ class SignContoller extends GetxController implements loging_sign {
   TextEditingController passwordControl = TextEditingController();
   @override
   TextEditingController namecontrol = TextEditingController();
+
+  FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
   @override
   void clearthevalue() {
@@ -34,17 +36,19 @@ class SignContoller extends GetxController implements loging_sign {
   }
 
   @override
-  void Fireauth(
-    String? email,
-    String? password,
-    context
-  ) {}
+  void Fireauth(String? email, String? password, context) {}
 
   void Autheintication(
       String email, String password, context, String name) async {
     try {
-      await firebaseAuth.createUserWithEmailAndPassword(
-          email: email, password: password);
+      await firebaseAuth
+          .createUserWithEmailAndPassword(email: email, password: password)
+          .then((value) {
+        _firebaseFirestore
+            .collection("user")
+            .doc("${firebaseAuth.currentUser?.uid}")
+            .set({"name": name, "email": email});
+      });
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.correctnotificatioin(context, "That you'r created ID"),
       );

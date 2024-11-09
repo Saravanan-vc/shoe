@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +15,7 @@ class LoginController extends GetxController implements loging_sign {
   TextEditingController passwordControl = TextEditingController();
   @override
   TextEditingController namecontrol = TextEditingController();
+
 
   @override
   void clearthevalue() {

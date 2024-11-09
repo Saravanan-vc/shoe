@@ -182,6 +182,17 @@ class _ReciverDetailsState extends State<ReciverDetails> {
                     ? GestureDetector(
                         onTap: () {
                           if (logic.key.currentState!.validate()) {
+                            debugPrint(
+                                "----------------------------------------------------");
+                            debugPrint("${cartproduct.first.name}");
+                            logic.addtodatabase(
+                                cartproduct.first.name,
+                                widget.price,
+                                logic.Recivername.text,
+                                logic.Reciverphone.text,
+                                cartproduct.first.image);
+                            debugPrint(
+                                "----------------------------------------------------");
                             Navigator.pop(context);
                             ScaffoldMessenger.of(context).showSnackBar(
                                 SnackBarwidget.correctnotificatioin(context,
@@ -258,12 +269,19 @@ class _ReciverDetailsState extends State<ReciverDetails> {
   }
 
   void razorerror(PaymentFailureResponse response) {
+    var cartc = Get.find<CartControllerBuy>();
+    debugPrint("----------------------------------------------------");
+    debugPrint("${cartproduct.first.name}");
+    cartc.addtodatabase(
+        cartproduct.first.name,
+        widget.price,
+        cartc.Recivername.text,
+        cartc.Reciverphone.text,
+        cartproduct.first.image);
+    debugPrint("----------------------------------------------------");
     Navigator.pop(context);
     ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.errortnotificatioin(context, "Payment error"));
-    debugPrint("----------------------------------------------------");
-    debugPrint("${cartproduct.first.name}");
-    debugPrint("----------------------------------------------------");
   }
 }
 
