@@ -9,7 +9,6 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   ControllerArea().injection();
-
   runApp(
     const MyApp(),
   );

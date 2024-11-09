@@ -42,7 +42,6 @@ class LoginController extends GetxController implements loging_sign {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.correctnotificatioin(context, "That you'r created ID"),
       );
-
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => Bottomnavigator(),
@@ -57,5 +56,4 @@ class LoginController extends GetxController implements loging_sign {
       );
     }
   }
-  
 }

@@ -44,7 +44,7 @@ class SignContoller extends GetxController implements loging_sign {
       String email, String password, context, String name) async {
     try {
       await firebaseAuth.createUserWithEmailAndPassword(
-          email: email!, password: password!);
+          email: email, password: password);
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBarwidget.correctnotificatioin(context, "That you'r created ID"),
       );
