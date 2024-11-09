@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:iconly/iconly.dart';
+import 'package:razorpay_flutter/razorpay_flutter.dart';
 import 'package:shoe/core/C&T_CHAPTER/Text_c.dart';
 import 'package:shoe/core/C&T_CHAPTER/colors_s.dart';
 import 'package:shoe/core/uni_widget_CHAPTER/padding&Margin/padding_space.dart';
@@ -11,13 +12,23 @@ import 'package:shoe/core/uni_widget_CHAPTER/snackbar.dart';
 import 'package:shoe/features_/cart_chapter/cart_controller/cart_controller_buy.dart';
 
 class ReciverDetails extends StatefulWidget {
-  const ReciverDetails({super.key});
+  final int price;
+  const ReciverDetails({super.key, required this.price});
 
   @override
   State<ReciverDetails> createState() => _ReciverDetailsState();
 }
 
 class _ReciverDetailsState extends State<ReciverDetails> {
+  late Razorpay razorpay;
+  @override
+  void initState() {
+    razorpay = Razorpay();
+    razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, razorsucess);
+    razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, razorerror);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -151,8 +162,8 @@ class _ReciverDetailsState extends State<ReciverDetails> {
                     Row(
                       children: [
                         Checkbox(
-                          value: true,
-                          onChanged: (_) {},
+                          value: logic.checkbox,
+                          onChanged: (_) => logic.updatecheckbox(),
                           overlayColor: WidgetStatePropertyAll(splashBlack),
                           activeColor: splashBlack,
                         ),
@@ -161,36 +172,69 @@ class _ReciverDetailsState extends State<ReciverDetails> {
                           style: textstyle.normal(20, splashBlack, 0),
                         ),
                         Text(
-                          '  (Cash On Delivery)',
+                          '  (Default Payment)',
                           style: textstyle.normal(14, splashBlack3, 0),
                         )
                       ],
                     )),
                 const Spacer(),
-                GestureDetector(
-                  onTap: () {
-                    if (logic.key.currentState!.validate()) {
-                      Navigator.pop(context);
-                      ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBarwidget.correctnotificatioin(context,
-                              "check order histroy to tarke you order"));
-                      logic.trackerpageon();
-                    }
-                  },
-                  child: Container(
-                    height: 40.h,
-                    width: ScreenHW().width(context) - 80,
-                    decoration: BoxDecoration(
-                        color: splashBlack,
-                        borderRadius: BorderRadius.circular(4)),
-                    child: Center(
-                      child: Text(
-                        'Process',
-                        style: textstyle.normal(20, splashWhite, 0),
+                logic.checkbox
+                    ? GestureDetector(
+                        onTap: () {
+                          if (logic.key.currentState!.validate()) {
+                            Navigator.pop(context);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBarwidget.correctnotificatioin(context,
+                                    "check order histroy to tarke you order"));
+                            logic.trackerpageon();
+                          }
+                        },
+                        child: Container(
+                          height: 40.h,
+                          width: ScreenHW().width(context) - 80,
+                          decoration: BoxDecoration(
+                              color: splashBlack,
+                              borderRadius: BorderRadius.circular(4)),
+                          child: Center(
+                            child: Text(
+                              'Process',
+                              style: textstyle.normal(20, splashWhite, 0),
+                            ),
+                          ),
+                        ),
+                      )
+                    : // below this navigat razor pay
+                    GestureDetector(
+                        onTap: () {
+                          if (logic.key.currentState!.validate()) {
+                            var options = {
+                              'key': 'rzp_live_ILgsfZCZoFIKMb',
+                              'amount': widget.price.toDouble(),
+                              'name': 'Acme Corp.',
+                              'description': 'Fine T-Shirt',
+                              'prefill': {
+                                'contact': '8888888888',
+                                'email': 'test@razorpay.com'
+                              }
+                            };
+                            razorpay.open(options);
+                            logic.trackerpageon();
+                          }
+                        },
+                        child: Container(
+                          height: 40.h,
+                          width: ScreenHW().width(context) - 80,
+                          decoration: BoxDecoration(
+                              color: splashBlue,
+                              borderRadius: BorderRadius.circular(4)),
+                          child: Center(
+                            child: Text(
+                              'Process',
+                              style: textstyle.normal(20, splashWhite, 0),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                ),
                 SizedBox(
                   height: 2.h,
                 ),
@@ -205,4 +249,27 @@ class _ReciverDetailsState extends State<ReciverDetails> {
       }),
     );
   }
+
+  void razorsucess(PaymentSuccessResponse response) {
+    Navigator.pop(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBarwidget.correctnotificatioin(
+            context, "check order histroy to tarke you order"));
+  }
+
+  void razorerror(PaymentFailureResponse response) {
+    Navigator.pop(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+        SnackBarwidget.errortnotificatioin(context, "Payment error"));
+    debugPrint("----------------------------------------------------");
+    debugPrint("${cartproduct.first.name}");
+    debugPrint("----------------------------------------------------");
+  }
 }
+
+
+/* 
+    till now we complet the payment fucntions
+    we want to create data about the use and what they purchased
+    like(collec->docu->collec->docu)
+*/

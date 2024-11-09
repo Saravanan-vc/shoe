@@ -23,4 +23,11 @@ class CartControllerBuy extends HomeController {
   void trackerpageon() {
     trackerpage = true;
   }
+
+  bool checkbox = true;
+
+  void updatecheckbox() {
+    checkbox = !checkbox;
+    update();
+  }
 }

@@ -80,7 +80,9 @@ class TotalPrice extends StatelessWidget {
                           Positioned(
                             top: 110,
                             left: 25,
-                            child: ReciverDetails(),
+                            child: ReciverDetails(
+                              price: logic.pricemethod(),
+                            ),
                           )
                         ],
                       ),
